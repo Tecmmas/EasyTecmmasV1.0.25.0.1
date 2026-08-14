@@ -60,8 +60,8 @@ class Cci2 extends CI_Controller
     {
         header('Content-Type: application/json; charset=utf-8');
         $this->setConf();
-        // $url = 'https://sicovws.ci2.co/fur/api/v1/rest/consulta_pin';
-        $url = 'Http://192.168.248.200:30084/fur/api/v1/rest/consulta_pin';
+        $url = 'https://sicovws.ci2.co/fur/api/v1/rest/consulta_pin';
+        // $url = 'Http://192.168.248.200:30084/fur/api/v1/rest/consulta_pin';
         $eco = json_decode($this->eco(), true);
         if (! $eco['success'] || $eco['ws_ecoResult'] !== 'OK') {
             echo json_encode([
@@ -138,8 +138,8 @@ class Cci2 extends CI_Controller
 
     private function consulta_pin_tiny($ipSicov, $usuarioSicov, $claveSicov, $pin, $placa)
     {
-        // $url  = 'https://sicovws.ci2.co/fur/api/v1/rest/consulta_pin';
-        $url  = 'Http://192.168.248.200:30084/fur/api/v1/rest/consulta_pin';
+        $url  = 'https://sicovws.ci2.co/fur/api/v1/rest/consulta_pin';
+        // $url  = 'Http://192.168.248.200:30084/fur/api/v1/rest/consulta_pin';
         $data = [
             'usuario' => $usuarioSicov,
             'clave'   => $claveSicov,
@@ -176,8 +176,8 @@ class Cci2 extends CI_Controller
     {
         header('Content-Type: application/json; charset=utf-8');
         $this->setConf();
-        // $url = 'https://sicovws.ci2.co/fur/api/v1/rest/consulta-pin-placa';
-        $url = 'Http://192.168.248.200:30084/fur/api/v1/rest/consulta-pin-placa';
+        $url = 'https://sicovws.ci2.co/fur/api/v1/rest/consulta-pin-placa';
+        // $url = 'Http://192.168.248.200:30084/fur/api/v1/rest/consulta-pin-placa';
         $eco = json_decode($this->eco(), true);
         if (! $eco['success'] || $eco['ws_ecoResult'] !== 'OK') {
             echo json_encode([
@@ -234,8 +234,8 @@ class Cci2 extends CI_Controller
     {
         header('Content-Type: application/json; charset=utf-8');
         $this->setConf();
-        // $url = 'https://sicovws.ci2.co/fur/api/v1/rest/consulta_runt';
-        $url = 'Http://192.168.248.200:30084/fur/api/v1/rest/consulta_runt';
+        $url = 'https://sicovws.ci2.co/fur/api/v1/rest/consulta_runt';
+        // $url = 'Http://192.168.248.200:30084/fur/api/v1/rest/consulta_runt';
         $eco = json_decode($this->eco(), true);
         if (! $eco['success'] || $eco['ws_ecoResult'] !== 'OK') {
             echo json_encode([
@@ -352,8 +352,8 @@ class Cci2 extends CI_Controller
     {
         header('Content-Type: application/json; charset=utf-8');
         $this->setConf();
-        // $url = 'https://sicovws.ci2.co/fur/api/v1/rest/utilizar_pin';
-        $url = 'http://192.168.248.200:30084/fur/api/v1/rest/utilizar_pin';
+        $url = 'https://sicovws.ci2.co/fur/api/v1/rest/utilizar_pin';
+        // $url = 'http://192.168.248.200:30084/fur/api/v1/rest/utilizar_pin';
         $eco = json_decode($this->eco(), true);
         // var_dump($eco);
         if (! $eco['success'] || $eco['ws_ecoResult'] !== 'OK') {
@@ -436,8 +436,8 @@ class Cci2 extends CI_Controller
     {
         header('Content-Type: application/json; charset=utf-8');
         $this->setConf();
-        // $url = 'https://sicovws.ci2.co/fur/api/v1/rest/reporte-ciclos-pruebas';
-        $url = 'http://192.168.248.200:30084/fur/api/v1/rest/reporte-ciclos-pruebas';
+        $url = 'https://sicovws.ci2.co/fur/api/v1/rest/reporte-ciclos-pruebas';
+        // $url = 'http://192.168.248.200:30084/fur/api/v1/rest/reporte-ciclos-pruebas';
          $eco = json_decode($this->eco(), true);
         if (! $eco['success'] || $eco['ws_ecoResult'] !== 'OK') {
             echo json_encode([
@@ -524,8 +524,8 @@ class Cci2 extends CI_Controller
         header('Content-Type: application/json; charset=utf-8');
         $this->setConf();
 
-        // $url = 'https://sicovws.ci2.co/fur/api/v1/rest/furv4';
-        $url = 'http://192.168.248.200:30084/fur/api/v1/rest/furv4';
+        $url = 'https://sicovws.ci2.co/fur/api/v1/rest/furv4';
+        // $url = 'http://192.168.248.200:30084/fur/api/v1/rest/furv4';
         $eco = json_decode($this->eco(), true);
         if (! $eco['success'] || $eco['ws_ecoResult'] !== 'OK') {
             echo json_encode([
@@ -592,8 +592,8 @@ class Cci2 extends CI_Controller
         header('Content-Type: application/json; charset=utf-8');
         $this->setConf();
 
-        // $url = 'https://sicovws.ci2.co/fur/api/v1/rest/consecutivo_runt_v1';
-        $url = 'http://192.168.248.200:30084/fur/api/v1/rest/consecutivo_runt_v1';
+        $url = 'https://sicovws.ci2.co/fur/api/v1/rest/consecutivo_runt_v1';
+        // $url = 'http://192.168.248.200:30084/fur/api/v1/rest/consecutivo_runt_v1';
         $eco = json_decode($this->eco(), true);
         if (! $eco['success'] || $eco['ws_ecoResult'] !== 'OK') {
             echo json_encode([
@@ -656,8 +656,8 @@ class Cci2 extends CI_Controller
     {
         header('Content-Type: application/json; charset=utf-8');
         $this->setConf();
-        // $url = 'https://sicovws.ci2.co/fur/api/v1/rest/eco';
-        $url = 'http://192.168.248.200:30084/fur/api/v1/rest/eco';
+        $url = 'https://sicovws.ci2.co/fur/api/v1/rest/eco';
+        // $url = 'http://192.168.248.200:30084/fur/api/v1/rest/eco';
 
         $options = [
             'http' => [
