@@ -1,185 +1,581 @@
-<?php //004fb
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Mprerevision extends CI_Model
+{
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function getConsecutivo($tipo, $consePre)
+    {
+        if ($consePre == "1") {
+            $result = $this->db->query("select count(*) + 1 cons from pre_prerevision where tipo_inspeccion=$tipo and consecutivo<>'OFC'");
+        } else {
+            $result = $this->db->query("select count(*) + 1 cons from pre_prerevision where tipo_inspeccion=$tipo");
+        }
+        $rta = $result->result();
+        return $rta[0]->cons;
+    }
+
+    //    public function getConsecutivo($tipo, $consePre)
+    // {
+    //     $whereCondition = $consePre == "1" ? "AND consecutivo <> 'OFC'" : "";
+
+    //     $result = $this->db->query("
+    //         SELECT COALESCE(MAX(CAST(consecutivo AS UNSIGNED)), 0) + 1 as cons 
+    //         FROM pre_prerevision 
+    //         WHERE tipo_inspeccion = ? 
+    //         AND consecutivo REGEXP '^[0-9]+$'
+    //         $whereCondition
+    //     ", [$tipo]);
+
+    //     $rta = $result->result();
+    //     return $rta[0]->cons;
+    // }
+
+    public function guardarPrerevision($pre_prerevision)
+    {
+        $this->updatePre($pre_prerevision);
+        $pre_prerevision['actualizado'] = '1';
+        $this->db->insert("pre_prerevision", $pre_prerevision);
+        return $this->db->insert_id();
+    }
+
+    public function guardarHistoVehiculo($histoVehiculo)
+    {
+        return $this->db->insert("histo_vehiculo", $histoVehiculo);
+    }
+
+    public function updatePre($pre_prerevision)
+    {
+        $numero_placa_ref = $pre_prerevision['numero_placa_ref'];
+        $tipo_inspeccion = $pre_prerevision['tipo_inspeccion'];
+        $reinspeccion = $pre_prerevision['reinspeccion'];
+        //        $fecha_prerevision = $pre_prerevision['fecha_prerevision'];
+        $this->db->query("
+                        UPDATE
+                        pre_prerevision p
+                        SET
+                        p.numero_placa_ref=CONCAT('$numero_placa_ref','-C'),
+                        p.fecha_prerevision=p.fecha_prerevision
+                        WHERE
+                        p.numero_placa_ref='$numero_placa_ref' AND
+                        DATE_FORMAT(p.fecha_prerevision, '%Y-%m-%d')  = CURDATE() AND
+                        p.tipo_inspeccion = $tipo_inspeccion AND p.reinspeccion = $reinspeccion");
+    }
+
+    public function guardarPreDato($preDato, $preAtributo, $preZona)
+    {
+        $this->db->trans_start();
+        $rtaAtributo = $this->buscarPreAtributo($preAtributo['id']);
+        if ($rtaAtributo->num_rows() !== 0) {
+            $this->actualizarPreAtributo($preAtributo);
+            $rta = $rtaAtributo->result();
+            $preDato['idpre_atributo'] = $rta[0]->idpre_atributo;
+        } else {
+            $preDato['idpre_atributo'] = $this->crearPreAtributo($preAtributo);
+        }
+        $rtaZona = $this->buscarPreZona($preZona['nombre']);
+        if ($rtaZona->num_rows() !== 0) {
+            $rta = $rtaZona->result();
+            $preDato['idpre_zona'] = $rta[0]->idpre_zona;
+        } else {
+            $preDato['idpre_zona'] = $this->crearPreZona($preZona);
+        }
+        $this->db->insert("pre_dato", $preDato);
+        $this->db->trans_complete();
+    }
+
+    public function buscarPreAtributo($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('pre_atributo');
+        return $query;
+    }
+
+    public function crearPreAtributo($preAtributo)
+    {
+        echo $this->db->insert("pre_atributo", $preAtributo);
+        return $this->db->insert_id();
+    }
+
+    public function actualizarPreAtributo($preAtributo)
+    {
+        $this->db->where('id', $preAtributo['id']);
+        echo $this->db->update("pre_atributo", $preAtributo);
+    }
+
+    public function buscarPreZona($nombre)
+    {
+        $this->db->where('nombre', $nombre);
+        $query = $this->db->get('pre_zona');
+        return $query;
+    }
+
+    public function crearPreZona($preZona)
+    {
+        echo $this->db->insert("pre_zona", $preZona);
+        return $this->db->insert_id();
+    }
+
+    public function guardarVehiculo($vehiculo)
+    {
+        $rtaVehiculo = $this->buscarVehiculo($vehiculo['numero_placa']);
+        if ($rtaVehiculo->num_rows() !== 0) {
+            $this->db->where('numero_placa', $vehiculo['numero_placa']);
+            echo $this->db->update('vehiculos', $vehiculo);
+        } else {
+            $vehiculo["diametro_escape"] = "0";
+            echo $this->db->insert("vehiculos", $vehiculo);
+        }
+    }
+
+    public function buscarVehiculo($numero_placa)
+    {
+        $this->db->where('numero_placa', $numero_placa);
+        $query = $this->db->get('vehiculos');
+        return $query;
+    }
+
+    public function cargarVehiculo($numero_placa)
+    {
+        $result = $this->db->query("SELECT 
+    v.numero_placa,
+    v.aplicares2703,
+    v.autoregulado,
+    IFNULL(cli.numero_identificacion, '') numero_identificacion,
+    IFNULL(cli.tipo_identificacion, '') tipo_identificacion,
+    IFNULL(cli.nombre1, '') nombre1,
+    IFNULL(cli.apellido1, '') apellido1,
+    IFNULL(cli.telefono1, '') telefono1,
+    IFNULL(cli.telefono2, '') telefono2,
+    IFNULL(cli.direccion, '') direccion,
+    IFNULL(cli.numero_licencia, '') numero_licencia,
+    IFNULL(cli.categoria_licencia, '') categoria_licencia,
+    IFNULL(cli.correo, '') correo,
+    IFNULL(REPLACE(cli.cumpleanos, '-', ''), '') cumpleanos,
+    IFNULL(ciu_cli.nombre, '') cod_ciudad,
+    IFNULL(pro.numero_identificacion, '') numero_identificacion_p,
+    IFNULL(pro.tipo_identificacion, '') tipo_identificacion_p,
+    IFNULL(pro.nombre1, '') nombre1_p,
+    IFNULL(pro.apellido1, '') apellido1_p,
+    IFNULL(pro.telefono1, '') telefono1_p,
+    IFNULL(pro.telefono2, '') telefono2_p,
+    IFNULL(pro.direccion, '') direccion_p,
+    IFNULL(pro.numero_licencia, '') numero_licencia_p,
+    IFNULL(pro.categoria_licencia, '') categoria_licencia_p,
+    IFNULL(pro.correo, '') correo_p,
+    IFNULL(REPLACE(pro.cumpleanos, '-', ''), '') cumpleanos_p,
+    IFNULL(ciu_pro.nombre, '') cod_ciudad_p,
+    IFNULL(UPPER(s.nombre), '') idservicio,
+    v.migrateLineaMarca,
+    
+    -- Optimizado: línea del vehículo
+    CASE 
+    WHEN v.migrateLineaMarca <> 1 THEN
+        IF(v.registrorunt = '0', 
+            COALESCE(linea_runt.nombre, linea_normal.nombre), 
+            COALESCE(linea_runt.nombre, 'SIN LINEA')
+        )
+    ELSE 
+        IFNULL((SELECT UPPER(nl.nombre) FROM newlineas nl WHERE nl.idlineas = v.idlinea LIMIT 1), 'SIN LINEA')
+END AS idlinea,
+
+CASE 
+    WHEN v.migrateLineaMarca <> 1 THEN
+        IF(v.registrorunt = '0',
+            COALESCE(marca_normal.nombre, 'SIN MARCA'),
+            COALESCE(marca_runt.nombre, 'SIN MARCA')
+        )
+    ELSE 
+        IFNULL((SELECT UPPER(nm.nombre) FROM newmarcas nm 
+                 WHERE nm.idmarcas = (SELECT nl.idmarcas FROM newlineas nl WHERE nl.idlineas = v.idlinea LIMIT 1) 
+                 LIMIT 1), 'SIN MARCA')
+END AS idmarca,
+    
+    IFNULL(c.nombre, '') idclase,
+    COALESCE(color_runt.nombre, color_normal.nombre, '') idcolor,
+    IFNULL(UPPER(tc.nombre), '') idtipocombustible,
+    v.ano_modelo,
+    v.numero_motor,
+    v.numero_serie,
+    v.numero_tarjeta_propiedad,
+    v.cilindraje,
+    v.cilindros,
+    v.num_pasajeros,
+    v.potencia_motor,
+    v.tipo_vehiculo,
+    v.taximetro,
+    v.tiempos,
+    v.ensenanza,
+    IFNULL(p.nombre, '') idpais,
+    IFNULL(REPLACE(v.fecha_matricula, '-', ''), '') fecha_matricula,
+    v.blindaje,
+    v.polarizado,
+    v.numsillas,
+    v.numero_vin,
+    v.numero_vin numero_chasis,
+    v.numero_llantas,
+    v.numero_exostos,
+    v.scooter,
+    v.numejes,
+    v.kilometraje,
+    IFNULL(car.nombre, '') diseno,
+    
+    -- Configuración de llantas optimizada
+    COALESCE(
+        (SELECT p_da.valor
+         FROM pre_prerevision p_pr
+         JOIN pre_atributo p_at ON p_at.id = 'llanta_ejes'
+         JOIN pre_dato p_da ON p_da.idpre_atributo = p_at.idpre_atributo 
+                           AND p_da.idpre_prerevision = p_pr.idpre_prerevision
+         WHERE p_pr.numero_placa_ref = v.numero_placa
+         ORDER BY p_pr.idpre_prerevision DESC 
+         LIMIT 1),
+        CASE IFNULL(c.nombre, '')
+            WHEN 'MOTOCICLETA' THEN '1-1'
+            WHEN 'CUATRIMOTO' THEN '2-2'
+            WHEN 'MOTOTRICICLO' THEN '1-2'
+            WHEN 'MOTOCARRO' THEN '1-2'
+            WHEN 'CUADRICICLO' THEN '2-2'
+            WHEN 'TRICIMOTO' THEN '2-1'
+            WHEN 'CICLOMOTOR' THEN '2-2'
+            WHEN 'AUTOMOVIL' THEN '2-2'
+            WHEN 'CAMIONETA' THEN '2-2'
+            WHEN 'CAMPERO' THEN '2-2'
+            WHEN 'MICROBUS' THEN '2-2'
+            WHEN 'BUS' THEN '2-4'
+            WHEN 'BUSETA' THEN '2-4'
+            WHEN 'CAMION' THEN '2-4'
+            WHEN 'TRACTOCAMION' THEN '2-4-4'
+            WHEN 'VOLQUETA' THEN '2-4'
+            ELSE '2-2'
+        END
+    ) conf_inf,
+    
+    -- Datos de certificado de gas optimizados
+    COALESCE(cert_gas.numero_certificado, '') numero_certificado_gas,
+    COALESCE(cert_gas.fecha_inicio, '') fecha_inicio_certgas,
+    COALESCE(cert_gas.fecha_final, '') fecha_final_certgas
+
+FROM vehiculos v
+
+-- LEFT JOINs para todas las tablas relacionadas
+LEFT JOIN servicio s ON v.idservicio = s.idservicio
+LEFT JOIN clase c ON v.idclase = c.idclase
+LEFT JOIN clientes cli ON v.idcliente = cli.idcliente
+LEFT JOIN clientes pro ON v.idpropietarios = pro.idcliente
+LEFT JOIN tipo_combustible tc ON v.idtipocombustible = tc.idtipocombustible
+LEFT JOIN tipo_vehiculo tv ON v.tipo_vehiculo = tv.idtipo_vehiculo
+LEFT JOIN paises p ON v.idpais = p.idpais
+LEFT JOIN ciudades ciu_cli ON cli.cod_ciudad = ciu_cli.cod_ciudad
+LEFT JOIN ciudades ciu_pro ON pro.cod_ciudad = ciu_pro.cod_ciudad
+LEFT JOIN carroceria car ON v.diseno = car.idcarroceria
+
+-- LEFT JOINs para datos opcionales de línea, marca y color
+LEFT JOIN linea linea_normal ON v.registrorunt = '0' AND v.migrateLineaMarca <> 1 AND linea_normal.idlinea = v.idlinea
+LEFT JOIN linearunt linea_runt ON v.registrorunt <> '0' AND v.migrateLineaMarca <> 1 AND linea_runt.idlinearunt = v.idlinea
+LEFT JOIN marca marca_normal ON v.registrorunt = '0' AND v.migrateLineaMarca <> 1 
+    AND marca_normal.idmarca = (SELECT l.idmarca FROM linea l WHERE l.idlinea = v.idlinea LIMIT 1)
+LEFT JOIN marcarunt marca_runt ON v.registrorunt <> '0' AND v.migrateLineaMarca <> 1 
+    AND marca_runt.idmarcarunt = (SELECT l.idmarcarunt FROM linearunt l WHERE l.idlinearunt = v.idlinea LIMIT 1)
+LEFT JOIN color color_normal ON v.registrorunt = '0' AND color_normal.idcolor = v.idcolor
+LEFT JOIN colorrunt color_runt ON v.registrorunt <> '0' AND color_runt.idcolorrunt = v.idcolor
+
+-- Subconsulta para datos de certificado de gas
+LEFT JOIN (
+    SELECT 
+        p_pr.numero_placa_ref,
+        MAX(CASE WHEN p_at.id = 'numero_certificado_g' THEN p_da.valor END) as numero_certificado,
+        MAX(CASE WHEN p_at.id = 'fecha_inicio_certgas' THEN p_da.valor END) as fecha_inicio,
+        MAX(CASE WHEN p_at.id = 'fecha_final_certgas' THEN p_da.valor END) as fecha_final
+    FROM pre_prerevision p_pr
+    JOIN pre_atributo p_at ON p_at.id IN ('numero_certificado_g', 'fecha_inicio_certgas', 'fecha_final_certgas')
+    JOIN pre_dato p_da ON p_da.idpre_atributo = p_at.idpre_atributo 
+                      AND p_da.idpre_prerevision = p_pr.idpre_prerevision
+    WHERE p_pr.numero_placa_ref = '$numero_placa'
+    GROUP BY p_pr.numero_placa_ref
+    ORDER BY p_pr.idpre_prerevision DESC
+    LIMIT 1
+) cert_gas ON cert_gas.numero_placa_ref = v.numero_placa
+
+WHERE v.numero_placa = '$numero_placa'
+LIMIT 1;");
+        return $result;
+    }
+
+    public function validarCiudad($cod_ciudad)
+    {
+        $result = $this->db->query("SELECT cod_ciudad FROM ciudades WHERE nombre='$cod_ciudad' LIMIT 1;");
+        if ($result->num_rows() !== 0) {
+            $rta = $result->result();
+            return $rta[0]->cod_ciudad;
+        } else {
+            return '';
+        }
+    }
+
+    public function validarClase($nombreclase)
+    {
+        $result = $this->db->query("SELECT idclase FROM clase WHERE nombre='$nombreclase' LIMIT 1;");
+        if ($result->num_rows() !== 0) {
+            $rta = $result->result();
+            return $rta[0]->idclase;
+        } else {
+            return '';
+        }
+    }   
+
+    public function validarLinea($nombrelinea, $nombremarca)
+    {
+        $result = $this->db->query("SELECT n.*
+                    FROM newlineas n
+                    JOIN newmarcas ne ON n.idmarcas = ne.idmarcas
+                    WHERE n.nombre = '$nombrelinea'
+                    AND ne.nombre = '$nombremarca';");
+        if ($result->num_rows() !== 0) {
+            $rta = $result->result();
+            return $rta[0]->idlineas;
+        } else {
+            return '';
+        }
+    }   
+//     public function cargarVehiculo($numero_placa)
+//     {
+//         $result = $this->db->query("SELECT 
+//     v.numero_placa,
+//     v.aplicares2703,
+//     v.autoregulado,
+//     cli.numero_identificacion,
+//     cli.tipo_identificacion,
+//     cli.nombre1,
+//     cli.apellido1,
+//     cli.telefono1,
+//     IFNULL(cli.telefono2, '') telefono2,
+//     cli.direccion,
+//     cli.numero_licencia,
+//     cli.categoria_licencia,
+//     cli.correo,
+//     REPLACE(cli.cumpleanos, '-', '') cumpleanos,
+//     ciu_cli.nombre cod_ciudad,
+//     IFNULL(pro.numero_identificacion, '') numero_identificacion_p,
+//     IFNULL(pro.tipo_identificacion, '') tipo_identificacion_p,
+//     pro.nombre1 nombre1_p,
+//     pro.apellido1 apellido1_p,
+//     IFNULL(pro.telefono1, '') telefono1_p,
+//     IFNULL(pro.telefono2, '') telefono2_p,
+//     IFNULL(pro.direccion, '') direccion_p,
+//     IFNULL(pro.numero_licencia, '') numero_licencia_p,
+//     IFNULL(pro.categoria_licencia, '') categoria_licencia_p,
+//     IFNULL(pro.correo, '') correo_p,
+//     IFNULL(REPLACE(pro.cumpleanos, '-', ''), '') cumpleanos_p,
+//     IFNULL(ciu_pro.nombre, '') cod_ciudad_p,
+//     UPPER(s.nombre) idservicio,
+//     v.migrateLineaMarca,
+    
+//     -- Optimizado: línea del vehículo
+//     CASE 
+//         WHEN v.migrateLineaMarca <> 1 THEN
+//             IF(v.registrorunt = '0', 
+//                 COALESCE(linea_runt.nombre, linea_normal.nombre), 
+//                 COALESCE(linea_runt.nombre, 'SIN LINEA')
+//             )
+//         ELSE 
+//             COALESCE((SELECT UPPER(nl.nombre) FROM newlineas nl WHERE nl.idlineas = v.idlinea LIMIT 1), 'SIN LINEA')
+//     END AS idlinea,
+
+//     -- Optimizado: marca del vehículo
+//     CASE 
+//         WHEN v.migrateLineaMarca <> 1 THEN
+//             IF(v.registrorunt = '0',
+//                 COALESCE(marca_normal.nombre, 'SIN MARCA'),
+//                 COALESCE(marca_runt.nombre, 'SIN MARCA')
+//             )
+//         ELSE 
+//             COALESCE((SELECT UPPER(nm.nombre) FROM newmarcas nm 
+//                      WHERE nm.idmarcas = (SELECT nl.idmarcas FROM newlineas nl WHERE nl.idlineas = v.idlinea LIMIT 1) 
+//                      LIMIT 1), 'SIN MARCA')
+//     END AS idmarca,
+    
+//     c.nombre idclase,
+//     COALESCE(color_runt.nombre, color_normal.nombre) idcolor,
+//     UPPER(tc.nombre) idtipocombustible,
+//     v.ano_modelo,
+//     v.numero_motor,
+//     v.numero_serie,
+//     v.numero_tarjeta_propiedad,
+//     v.cilindraje,
+//     v.num_pasajeros,
+//     v.potencia_motor,
+//     v.tipo_vehiculo,
+//     v.taximetro,
+//     v.tiempos,
+//     v.ensenanza,
+//     p.nombre idpais,
+//     REPLACE(v.fecha_matricula, '-', '') fecha_matricula,
+//     v.blindaje,
+//     v.polarizado,
+//     v.numsillas,
+//     v.numero_vin,
+//     v.numero_vin numero_chasis,
+//     v.numero_llantas,
+//     v.numero_exostos,
+//     v.scooter,
+//     v.numejes,
+//     v.kilometraje,
+//     car.nombre diseno,
+    
+//     -- Configuración de llantas optimizada
+//     COALESCE(
+//         (SELECT p_da.valor
+//          FROM pre_prerevision p_pr
+//          JOIN pre_atributo p_at ON p_at.id = 'llanta_ejes'
+//          JOIN pre_dato p_da ON p_da.idpre_atributo = p_at.idpre_atributo 
+//                            AND p_da.idpre_prerevision = p_pr.idpre_prerevision
+//          WHERE p_pr.numero_placa_ref = v.numero_placa
+//          ORDER BY p_pr.idpre_prerevision DESC 
+//          LIMIT 1),
+//         CASE c.nombre
+//             WHEN 'MOTOCICLETA' THEN '1-1'
+//             WHEN 'CUATRIMOTO' THEN '2-2'
+//             WHEN 'MOTOTRICICLO' THEN '1-2'
+//             WHEN 'MOTOCARRO' THEN '1-2'
+//             WHEN 'CUADRICICLO' THEN '2-2'
+//             WHEN 'TRICIMOTO' THEN '2-1'
+//             WHEN 'CICLOMOTOR' THEN '2-2'
+//             WHEN 'AUTOMOVIL' THEN '2-2'
+//             WHEN 'CAMIONETA' THEN '2-2'
+//             WHEN 'CAMPERO' THEN '2-2'
+//             WHEN 'MICROBUS' THEN '2-2'
+//             WHEN 'BUS' THEN '2-4'
+//             WHEN 'BUSETA' THEN '2-4'
+//             WHEN 'CAMION' THEN '2-4'
+//             WHEN 'TRACTOCAMION' THEN '2-4-4'
+//             WHEN 'VOLQUETA' THEN '2-4'
+//             ELSE '2-2'
+//         END
+//     ) conf_inf,
+    
+//     -- Datos de certificado de gas optimizados
+//     COALESCE(cert_gas.numero_certificado, '') numero_certificado_gas,
+//     COALESCE(cert_gas.fecha_inicio, '') fecha_inicio_certgas,
+//     COALESCE(cert_gas.fecha_final, '') fecha_final_certgas
+
+
+// FROM vehiculos v
+// INNER JOIN servicio s ON v.idservicio = s.idservicio
+// INNER JOIN clase c ON v.idclase = c.idclase
+// INNER JOIN clientes cli ON v.idcliente = cli.idcliente
+// INNER JOIN clientes pro ON v.idpropietarios = pro.idcliente
+// INNER JOIN tipo_combustible tc ON v.idtipocombustible = tc.idtipocombustible
+// INNER JOIN tipo_vehiculo tv ON v.tipo_vehiculo = tv.idtipo_vehiculo
+// INNER JOIN paises p ON v.idpais = p.idpais
+// INNER JOIN ciudades ciu_cli ON cli.cod_ciudad = ciu_cli.cod_ciudad
+// INNER JOIN ciudades ciu_pro ON pro.cod_ciudad = ciu_pro.cod_ciudad
+// INNER JOIN carroceria car ON v.diseno = car.idcarroceria
+
+// -- LEFT JOINs para datos opcionales
+// LEFT JOIN linea linea_normal ON v.registrorunt = '0' AND v.migrateLineaMarca <> 1 AND linea_normal.idlinea = v.idlinea
+// LEFT JOIN linearunt linea_runt ON v.registrorunt <> '0' AND v.migrateLineaMarca <> 1 AND linea_runt.idlinearunt = v.idlinea
+// LEFT JOIN marca marca_normal ON v.registrorunt = '0' AND v.migrateLineaMarca <> 1 
+//     AND marca_normal.idmarca = (SELECT l.idmarca FROM linea l WHERE l.idlinea = v.idlinea LIMIT 1)
+// LEFT JOIN marcarunt marca_runt ON v.registrorunt <> '0' AND v.migrateLineaMarca <> 1 
+//     AND marca_runt.idmarcarunt = (SELECT l.idmarcarunt FROM linearunt l WHERE l.idlinearunt = v.idlinea LIMIT 1)
+// LEFT JOIN color color_normal ON v.registrorunt = '0' AND color_normal.idcolor = v.idcolor
+// LEFT JOIN colorrunt color_runt ON v.registrorunt <> '0' AND color_runt.idcolorrunt = v.idcolor
+
+// -- Subconsulta para datos de certificado de gas (una sola vez)
+// LEFT JOIN (
+//     SELECT 
+//         p_pr.numero_placa_ref,
+//         MAX(CASE WHEN p_at.id = 'numero_certificado_g' THEN p_da.valor END) as numero_certificado,
+//         MAX(CASE WHEN p_at.id = 'fecha_inicio_certgas' THEN p_da.valor END) as fecha_inicio,
+//         MAX(CASE WHEN p_at.id = 'fecha_final_certgas' THEN p_da.valor END) as fecha_final
+//     FROM pre_prerevision p_pr
+//     JOIN pre_atributo p_at ON p_at.id IN ('numero_certificado_g', 'fecha_inicio_certgas', 'fecha_final_certgas')
+//     JOIN pre_dato p_da ON p_da.idpre_atributo = p_at.idpre_atributo 
+//                       AND p_da.idpre_prerevision = p_pr.idpre_prerevision
+//     WHERE p_pr.numero_placa_ref = '$numero_placa'
+//     GROUP BY p_pr.numero_placa_ref
+//     ORDER BY p_pr.idpre_prerevision DESC
+//     LIMIT 1
+// ) cert_gas ON cert_gas.numero_placa_ref = v.numero_placa
+
+// WHERE v.numero_placa = '$numero_placa'
+// LIMIT 1;");
+//         return $result;
+//     }
+
+    public function cargarVehiculoLite($numero_placa)
+    {
+        $result = $this->db->query("SELECT
+v.numero_placa,
+v.aplicares2703,
+v.autoregulado,
+upper(s.nombre) AS  idservicio,
+if(v.registrorunt='0',(select l.nombre from linea l where l.idlinea=v.idlinea limit 1),(select l.nombre from linearunt l where l.idlinearunt=v.idlinea limit 1)) idlinea,
+if(v.registrorunt='0',(select m.nombre from linea l,marca m where l.idlinea=v.idlinea and l.idmarca=m.idmarca limit 1),(select m.nombre from linearunt l,marcarunt m where l.idlinearunt=v.idlinea and m.idmarcarunt=l.idmarcarunt limit 1)) idmarca,
+c.nombre AS  idclase,
+if(v.registrorunt='0',(select co.nombre from color co where co.idcolor=v.idcolor limit 1),(select co.nombre from colorrunt co where co.idcolorrunt=v.idcolor limit 1)) idcolor,
+v.ano_modelo,
+v.numero_motor,
+v.numero_serie,
+v.numero_tarjeta_propiedad,
+v.cilindraje,
+v.potencia_motor,
+v.tipo_vehiculo,
+v.taximetro,
+v.tiempos,
+v.ensenanza,
+IFNULL((SELECT p.nombre FROM paises p WHERE v.idpais = p.idpais LIMIT 1),'') AS   idpais,
+replace(v.fecha_matricula,'-','') fecha_matricula,
+v.blindaje,
+v.polarizado,
+v.numsillas,
+v.numero_vin,
+v.numero_vin numero_chasis,
+v.numero_llantas,
+v.numero_exostos,
+v.scooter,
+v.numejes,
+v.kilometraje,
+IFNULL(c.tipolux, '') AS tipolux,
+v.convertidor,
+(v.diametro_escape * 10) diametro_escape,
+v.idtipocombustible,
+if(v.idtipocombustible=1,'DIESEL',if(v.idtipocombustible=2,'GASOLINA',if(v.idtipocombustible=3,'GNV',if(v.idtipocombustible=4,'GAS-GASOL',if(v.idtipocombustible=5,'ELECTRICO',if(v.idtipocombustible=6,'HIDROGENO',if(v.idtipocombustible=7,'ETANOL',if(v.idtipocombustible=8,'BIODIESEL',if(v.idtipocombustible=9,'GLP',if(v.idtipocombustible=10,'GAS-ELECTRICO','GAS-DIESEL')))))))))) combustible,
+v.numero_tarjeta_propiedad,
+IFNULL((SELECT CONCAT(c.nombre1,' ',c.nombre2,' ',c.apellido1,' ',c.apellido2) FROM clientes c WHERE v.idcliente = c.idcliente LIMIT 1),'') AS nombre_propietario,
+IFNULL((SELECT if(c.tipo_identificacion=1,'CC',if(c.tipo_identificacion=3,'CE',if(c.tipo_identificacion=4,'TI',if(c.tipo_identificacion=6,'PA','NIT')))) FROM clientes c WHERE v.idcliente = c.idcliente LIMIT 1),'') AS tipo_identificacion,
+IFNULL((SELECT c.numero_identificacion FROM clientes c WHERE v.idcliente = c.idcliente LIMIT 1),'') AS numero_identificacion,
+IFNULL((SELECT c.direccion FROM clientes c WHERE v.idcliente = c.idcliente LIMIT 1),'') AS direccion,
+IFNULL((SELECT c.telefono1 FROM clientes c WHERE v.idcliente = c.idcliente LIMIT 1),'') AS telefono1,
+IFNULL((SELECT c.telefono2 FROM clientes c WHERE v.idcliente = c.idcliente LIMIT 1),'') AS telefono2,
+IFNULL((SELECT ci.nombre FROM clientes c, ciudades ci WHERE v.idcliente = c.idcliente AND c.cod_ciudad = ci.cod_ciudad LIMIT 1),'') AS nombre_ciudad,
+IFNULL((SELECT ca.nombre FROM carroceria ca WHERE v.diseno = ca.idcarroceria LIMIT 1),'SIN CARROCERIA') AS carroceria
+FROM vehiculos v,servicio s, clase c
+WHERE
+v.idservicio = s.idservicio AND v.idclase = c.idclase AND v.numero_placa = '$numero_placa' limit 1");
+        return $result;
+    }
+
+    public function consultarPropietario($numero_identificacion)
+    {
+        $result = $this->db->query("SELECT 
+        ifnull((select c.nombre from ciudades c where c.cod_ciudad=cli.cod_ciudad limit 1),'') cod_ciudadp,
+        cli.*,
+        DATE_FORMAT(cli.cumpleanos, '%Y%m%d') AS cumpleanos
+        
+        FROM clientes cli WHERE cli.numero_identificacion = '$numero_identificacion' limit 1");
+        if ($result->num_rows() !== 0) {
+            $rta = $result->result();
+            return $rta[0];
+        } else {
+            return '';
+        }
+    }   
+}
