@@ -1,1331 +1,202 @@
-<?php $this->load->view('./header'); ?>
-
-<!-- START CONTENT -->
-<section id="main-content" class=" ">
-    <section class="wrapper main-wrapper row" style=''>
-
-        <div class="clearfix"></div>
-        <!-- MAIN CONTENT AREA STARTS -->
-        <h4>VISOR DE PLACAS</h4>
-        <div style="width: 100%;text-align: center">
-            <table style="width: 100%">
-                <tr>
-                    <td style="width: 10%;text-align: right">
-                        <strong>Filtrar por: </strong>
-                    </td>
-                    <td style="width: 15%;padding-left: 10px;text-align: left">
-                        <select class="form-control" id="tipo_inspeccion" onclick="setEscenario(this)">
-                            <!--<option value="0">Todos</option>-->
-                            <option value="1">RTMec</option>
-                            <option value="2">Preventiva</option>
-                            <option value="3">Prueba libre</option>
-                        </select>
-                    </td>
-
-                    <?php if ($sicov == 'INDRA') { ?>
-                        <td style="text-align: right;padding-right: 15px">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sicovConfigModal">
-                                <i class="fa fa-cog"></i> Configuración SICOV
-                            </button>
-                        </td>
-                    <?php } ?>
-
-                </tr>
-            </table>
-        </div>
-        <table style="width: 100%">
-            <tr>
-                <td>
-                    <div class="col-xl-12">
-
-                        <header class="panel_header">
-                            <h4 class="title float-center">vehículos en pista</h4>
-                            <!--<h4 class="title float-center">vehículos en pista</h4> - <strong id="cEnPista"></strong>-->
-                        </header>
-                        <div class="content-body">
-                            <form action="<?php echo base_url(); ?>index.php/oficina/gestion/CGPrueba/CGVenPista" method="post">
-                                <div class="col-12" style="
-                                     overflow: scroll;height: 300px">
-                                    <table class="table table-bordered" style="background: #FDFFDF">
-                                        <thead>
-                                            <tr>
-                                                <th>Placa</th>
-                                                <th>Ver</th>
-                                                <th>Vez</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="vEnPista">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-xl-12">
-                        <header class="panel_header">
-                            <h2 class="title float-center" id="TitRech">Rechazado para firmar</h2>
-                            <!--                            <h2 class="title float-center" id="TitRech">Rechazado para firmar</h2> - <strong id="cRechSinFirmar"></strong>-->
-                        </header>
-                        <div class="content-body">
-                            <form action="<?php echo base_url(); ?>index.php/oficina/gestion/CGPrueba/CGVrechaSinFirmar" method="post">
-                                <div class="col-12" style="
-                                     overflow: scroll;height: 300px">
-                                    <table class="table table-bordered" style="background: #FFE5DF">
-                                        <thead>
-                                            <tr>
-                                                <th>Placa</th>
-                                                <th>Ver</th>
-                                                <th>Vez</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="vRechSinFirmar">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-xl-12">
-                        <header class="panel_header">
-                            <h2 class="title float-center" id="TitApro">Aprobado para firmar</h2>
-                            <!--<h2 class="title float-center" id="TitApro">Aprobado para firmar</h2> - <strong id="cAproSinFirmar"></strong>-->
-                        </header>
-                        <div class="content-body">
-                            <form action="<?php echo base_url(); ?>index.php/oficina/gestion/CGPrueba/CGVaproSinFirmar" method="post">
-                                <div class="col-12" style="
-                                     overflow: scroll;height: 300px">
-                                    <table class="table table-bordered" style="background: #DFFFE1">
-                                        <thead>
-                                            <tr>
-                                                <th>Placa</th>
-                                                <th>Ver</th>
-                                                <th>Vez</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="vAproSinFirmar">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr id="colsSicov">
-                <td>
-                    <div class="col-xl-12">
-                        <header class="panel_header">
-                            <h2 class="title float-center">Rechazado para consecutivo</h2>
-                            <!--<h2 class="title float-center">Rechazado para consecutivo</h2> - <strong id="cRechSinConsecutivo"></strong>-->
-                        </header>
-                        <div class="content-body">
-                            <form action="<?php echo base_url(); ?>index.php/oficina/gestion/CGPrueba/CGVrechaSinConsecutivo" method="post">
-                                <div class="col-12" style="
-                                     overflow: scroll;height: 300px">
-                                    <table class="table table-bordered" style="background: #FFC9C9">
-                                        <thead>
-                                            <tr>
-                                                <th>Placa</th>
-                                                <th>Ver</th>
-                                                <th>Vez</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="vRechSinConsecutivo">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-xl-12">
-                        <header class="panel_header">
-                            <h2 class="title float-center">Aprobado para consecutivo</h2> - <strong id="cAproSinConsecutivo"></strong>
-                        </header>
-                        <div class="content-body">
-                            <form action="<?php echo base_url(); ?>index.php/oficina/gestion/CGPrueba/CGVaproSinConsecutivo" method="post">
-                                <div class="col-12" style="
-                                     overflow: scroll;height: 300px">
-                                    <table class="table table-bordered" style="background: #CAFFC9">
-                                        <thead>
-                                            <tr>
-                                                <th>Placa</th>
-                                                <th>Ver</th>
-                                                <th>Vez</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="vAproSinConsecutivo">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-xl-12">
-                        <header class="panel_header">
-                            <h2 class="title float-center">Vehiculo finalizado</h2><br>
-                            <!--                            Aprobados - <strong id="cAproFin"></strong><br>
-                            Rechazados - <strong id="cRechaFin"></strong>-->
-                        </header>
-                        <div class="content-body">
-                            <form action="<?php echo base_url(); ?>index.php/oficina/gestion/CGPrueba/CGVfinalizado" method="post">
-                                <div class="col-12" style="overflow: scroll;height: 300px">
-                                    <table class="table table-bordered" style="background: #C9E1FF">
-                                        <thead>
-                                            <tr>
-                                                <th>Placa</th>
-                                                <th>Ver</th>
-                                                <th>Vez</th>
-                                                <th id="envioemail" style="display: none">Envio fur email</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="vFinalizado">
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table><br>
-        <div id="eventosSICOV">
-            <h4>EVENTOS DEL SICOV</h4>
-            <table style="width: 100%">
-                <tr>
-                    <td style="width: 50%">
-                        <div class="col-xl-12">
-                            <header class="panel_header">
-                                <h4 class="title">EVENTOS DE PIN</h4>
-                            </header>
-                            <div class="content-body">
-                                <div style="overflow: scroll;height: 400px;">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Ver</th>
-                                                <th>Placa</th>
-                                                <th>Ocasión</th>
-                                                <th>Fecha</th>
-                                                <th>Evento</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="eventosPIN">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td style="width: 50%">
-                        <div class="col-xl-12">
-                            <header class="panel_header">
-                                <h2 class="title float-center">Eventos de FUR</h2>
-                            </header>
-                            <div class="content-body">
-                                <div class="col-12" style="
-                                     overflow: scroll;height: 400px">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Ver</th>
-                                                <th>Placa</th>
-                                                <th>Ocasión</th>
-                                                <th>Fecha</th>
-                                                <th>Evento</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="eventosFUR">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="col-xl-12">
-                            <header class="panel_header">
-                                <h4 class="title">EVENTOS DE RUNT</h4>
-                            </header>
-                            <div class="content-body">
-                                <div class="col-12" style="
-                                     overflow: scroll;height: 400px">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Ver</th>
-                                                <th>Placa</th>
-                                                <th>Ocasión</th>
-                                                <th>Fecha</th>
-                                                <th>Evento</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="eventosRUNT">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="col-xl-12">
-                            <header class="panel_header">
-                                <h2 class="title float-center">EVENTOS DE PRUEBAS</h2>
-                            </header>
-                            <div class="content-body">
-                                <div class="col-12" style="
-                                     overflow: scroll;height: 400px">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Ver</th>
-                                                <th>Placa</th>
-                                                <th>Fecha</th>
-                                                <th>Evento</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="eventosPruebas">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <!-- MAIN CONTENT AREA ENDS -->
-    </section>
-</section>
-
-<?php if ($sicov == 'INDRA') { ?>
-<div class="modal" id="sicovConfigModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog animated bounceInDown">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Configuración SICOV</h4>
-            </div>
-            <div class="modal-body" style="background: whitesmoke">
-                <div class="form-group">
-                    <label for="ipDireccionamientoSICOV"><strong>IP principal SICOV</strong></label>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <input type="input" id="ipDireccionamientoSICOV" onchange="changeIpSicovAlternativo()" class="form-control" placeholder="192.168.10.219:8056">
-                        </div>
-                        <div class="col-md-4">
-                            <select class="form-control" id="direccionamientoSICOV" onchange="activarSicovAlternativo(this)" title="Activar direccionamiento alternativo">
-                                <option value="0">NO</option>
-                                <option value="1">SI</option>
-                            </select>
-                        </div>
-                    </div>
-                    <small class="text-muted">El selector activa el direccionamiento alternativo en lugar de la IP configurada en el sistema.</small>
-                </div>
-                <div class="form-group">
-                    <label for="ipSicov2"><strong>IP SICOV v2.0</strong></label>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <input type="input" id="ipSicov2" onchange="guardarIpSicov2()" value="<?php echo isset($ipSicov2) ? htmlspecialchars($ipSicov2) : ''; ?>" class="form-control" placeholder="192.168.10.219:8056">
-                        </div>
-                        <div class="col-md-4">
-                            <button type="button" class="btn btn-primary" onclick="guardarIpSicov2()">Guardar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button data-dismiss="modal" class="btn btn-success" type="button">CERRAR</button>
-            </div>
-        </div>
-    </div>
-</div>
-<?php } ?>
-
-<div class="modal" id="detalleModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog animated bounceInDown">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Detalle del evento</h4>
-            </div>
-            <div class="modal-body" style="background: whitesmoke">
-                <label id="detalleSICOV"
-                    style="background: white;
-                       width: 100%;
-                       text-align: center;
-                       font-weight: bold;
-                       font-size: 15px;
-                       padding: 5px;border: solid gray 2px;
-                       border-radius:  15px 15px 15px 15px;color: black"></label>
-            </div>
-            <div class="modal-footer">
-                <button data-dismiss="modal" class="btn btn-success" type="button">ACEPTAR</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal" id="envioEmail" s tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog animated bounceInDown">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="titulo_">ENVIO DE FORMATO</h4>
-            </div>
-            <div class="modal-body" style="background: whitesmoke">
-                <label id="mensaje"
-                    style="background: white;
-                       width: 100%;
-                       text-align: center;
-                       font-weight: bold;
-                       font-size: 15px;
-                       padding: 5px;border: solid gray 2px;
-                       border-radius:  15px 15px 15px 15px;color: gray">Bienvenido</label>
-                <br>
-                <table class="table">
-                    <tr id="pre_email">
-                        <td><input type="checkbox" style="transform: scale(2.0)" class="skin-square-blue" id="email_prerevision" /></td>
-                        <td>Adjuntar formato de prerevision</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: right">Email</td>
-                        <td colspan="3" style="text-align: left;padding-left: 10px">
-                            <input id="datEmail" type="email" class="form-control" />
-                        </td>
-                    </tr>
-
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button data-dismiss="modal" id="cancelar" class="btn btn-default" type="button">Cancelar</button>
-                <button class="btn btn-success" id="btnEnviar" type="submit" onclick="enviarEmailData()">Enviar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<?php
-$this->load->view('./footer');
+<?php //004fb
+if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
 ?>
-
-<script type="text/javascript">
-    var activoSicov = '<?php
-                        if (isset($activoSicov)) {
-                            echo $activoSicov;
-                        } else {
-                            echo '0';
-                        }
-                        ?>';
-    var idCdaRUNT = '<?php
-                        if (isset($idCdaRUNT)) {
-                            echo $idCdaRUNT;
-                        } else {
-                            echo '0';
-                        }
-                        ?>';
-    var ipSicovAlternativo = '<?php
-                                if (isset($ipSicovAlternativo)) {
-                                    echo $ipSicovAlternativo;
-                                } else {
-                                    echo '0';
-                                }
-                                ?>';
-    var sicovModoAlternativo = '<?php
-                                if (isset($sicovModoAlternativo)) {
-                                    echo $sicovModoAlternativo;
-                                } else {
-                                    echo '0';
-                                }
-                                ?>';
-    var ipSicov = '<?php
-                    if (isset($ipSicov)) {
-                        echo $ipSicov;
-                    } else {
-                        echo '0';
-                    }
-                    ?>';
-    var usuarioSicov = '<?php
-                        if (isset($usuarioSicov)) {
-                            echo $usuarioSicov;
-                        } else {
-                            echo '0';
-                        }
-                        ?>';
-    var claveSicov = '<?php
-                        if (isset($claveSicov)) {
-                            echo $claveSicov;
-                        } else {
-                            echo '0';
-                        }
-                        ?>';
-    var sicov = '<?php
-                    if (isset($sicov)) {
-                        echo $sicov;
-                    } else {
-                        echo '0';
-                    }
-                    ?>';
-    var salaEspera2 = '<?php
-                        if (isset($salaEspera2)) {
-                            echo $salaEspera2;
-                        } else {
-                            echo '0';
-                        }
-                        ?>';
-    var moduloPrerevision = '<?php
-                                if (isset($moduloPrerevision)) {
-                                    echo $moduloPrerevision;
-                                } else {
-                                    echo '0';
-                                }
-                                ?>';
-    var envioCorreo = '<?php
-                        if (isset($envioCorreo)) {
-                            echo $envioCorreo;
-                        } else {
-                            echo '0';
-                        }
-                        ?>';
-    var CARinformeActivo = '<?php
-                            if (isset($CARinformeActivo)) {
-                                echo $CARinformeActivo;
-                            } else {
-                                echo '0';
-                            }
-                            ?>';
-    var ipCAR = '<?php
-                    if (isset($ipCAR)) {
-                        echo $ipCAR;
-                    } else {
-                        echo '0';
-                    }
-                    ?>';
-    var dominio = "";
-
-    var reload = function() {
-        setInterval(function() {
-            cargarDatos();
-            //cargarSICOV();
-            //enviarEventosINDRA();
-            enviarAuditoria();
-           // migracionPrerevision();
-            //            console.log(localStorage.getItem("dominio"));
-            //ranTh(0,0);
-            //            if (localStorage.getItem("dominio") === "cdasolviales.tecmmas.com")
-            //                ranTh(1, 51);
-            //            if (salaEspera2 === "1")
-            //                enviarPlacaSalaE();
-        }, 10000);
-    };
-    //console.log(dominio)
-
-    var setPlaca = function(contenedor, iterador) {
-        //        cEnPista = 0
-        //        cRechSinFirmar = 0;
-        //        cAproSinFirmar = 0;
-        //        vRechSinConsecutivo = 0;
-        //        vAproSinConsecutivo = 0;
-        var contenido = '';
-        var email = '';
-        //        if (sicov === 'INDRA' && activoSicov === '1')
-        //            enviarEventosINDRA();
-        document.getElementById(contenedor).innerHTML = "";
-        if (iterador !== '')
-            switch ($('#tipo_inspeccion').val().toString()) {
-                case '1':
-                    localStorage.setItem("tipoIns", "1");
-                    if (contenedor === 'vFinalizado') {
-                        cRechaFin = 0;
-                        cAproFin = 0;
-                        //                        document.getElementById('cAproFin').innerHTML = cAproFin;
-                        //                        document.getElementById('cRechaFin').innerHTML = cRechaFin;
-                    } else if (contenedor === 'vEnPista') {
-                        cEnPista = 0;
-                        //                        document.getElementById('cEnPista').innerHTML = cEnPista;
-                    } else if (contenedor === 'vRechSinFirmar') {
-                        cRechSinFirmar = 0;
-                        //                        document.getElementById('cRechSinFirmar').innerHTML = cRechSinFirmar;
-                    } else if (contenedor === 'vAproSinFirmar') {
-                        cAproSinFirmar = 0;
-                        //                        document.getElementById('cAproSinFirmar').innerHTML = cAproSinFirmar;
-                    } else if (contenedor === 'vRechSinConsecutivo') {
-                        cRechSinConsecutivo = 0;
-                        //                        document.getElementById('cRechSinConsecutivo').innerHTML = cRechSinConsecutivo;
-                    } else if (contenedor === 'vAproSinConsecutivo') {
-                        cAproSinConsecutivo = 0;
-                        //                        document.getElementById('cAproSinConsecutivo').innerHTML = cAproSinConsecutivo;
-                    }
-                    iterador.forEach(function(dat) {
-                        if (dat.reinspeccion === '1' || dat.reinspeccion === '0') {
-                            document.getElementById('envioemail').style.display = '';
-                            var color = '';
-                            var res = '';
-                            if (contenedor === 'vFinalizado') {
-                                //                                email = '<td><button name="dato" value ="' + dat.idhojapruebas + '-' + dat.reinspeccion + res + '" type="submit" style="border-radius: 40px 40px 40px 40px;font-size: 14px">Enviar</button></td>';
-
-                                if (dat.estadototal === '4') {
-                                    res = '-4';
-                                    color = 'style="background:#ccffcc"';
-                                    cAproFin++;
-                                } else {
-                                    res = '-7';
-                                    color = 'style="background:#ffcccc"';
-                                    cRechaFin++;
-                                }
-                                email = '<td><input type="submit" id="enviar_email" title="' + dat.idhojapruebas + '|' + dat.email + '|' + dat.idprerevision + '|' + dat.reinspeccion + '|' + res + '"  onclick="enviarEmail(event,this.title)"  data-toggle="modal" data-target="#envioEmail"  style="border-radius: 40px 40px 40px 40px;font-size: 14px" value="Enviar" /></td>';
-                            } else if (contenedor === 'vEnPista') {
-                                cEnPista++;
-                            } else if (contenedor === 'vRechSinFirmar') {
-                                cRechSinFirmar++;
-                            } else if (contenedor === 'vAproSinFirmar') {
-                                cAproSinFirmar++;
-                            } else if (contenedor === 'vRechSinConsecutivo') {
-                                cRechSinConsecutivo++;
-                            } else if (contenedor === 'vAproSinConsecutivo') {
-                                cAproSinConsecutivo++;
-                            }
-                            contenido += '<tr ' + color + ' ><td>' + dat.placa + '</td><td><button name="dato" value ="' + dat.idhojapruebas + '-' + dat.reinspeccion + res + '" type="submit" style="border-radius: 40px 40px 40px 40px;font-size: 14px">Ver</button></td><td>' + dat.ocacion + '</td> ' + email + '</tr>';
-                        }
-                    });
-                    //                    console.log(contenedor);
-                    if (contenedor === 'vFinalizado') {
-                        //                        document.getElementById('cAproFin').innerHTML = cAproFin;
-                        //                        document.getElementById('cRechaFin').innerHTML = cRechaFin;
-                    } else if (contenedor === 'vEnPista') {
-                        //                        document.getElementById('cEnPista').innerHTML = cEnPista;
-                    } else if (contenedor === 'vRechSinFirmar') {
-                        //                        document.getElementById('cRechSinFirmar').innerHTML = cRechSinFirmar;
-                    } else if (contenedor === 'vAproSinFirmar') {
-                        //                        document.getElementById('cAproSinFirmar').innerHTML = cAproSinFirmar;
-                    } else if (contenedor === 'vRechSinConsecutivo') {
-                        //                        document.getElementById('cRechSinConsecutivo').innerHTML = cRechSinConsecutivo;
-                    } else if (contenedor === 'vAproSinConsecutivo') {
-                        //                        document.getElementById('cAproSinConsecutivo').innerHTML = cAproSinConsecutivo;
-                    }
-                    break;
-                case '2':
-                    localStorage.setItem("tipoIns", "2");
-                    iterador.forEach(function(dat) {
-                        if (dat.reinspeccion === '44441' || dat.reinspeccion === '4444') {
-                            if (dat.reinspeccion === '4444')
-                                dat.ocacion = '1ra';
-                            else
-                                dat.ocacion = '2da';
-                            contenido += '<tr><td>' + dat.placa + '</td><td><button name="dato" value ="' + dat.idhojapruebas + '-' + dat.reinspeccion + '" type="submit" style="border-radius: 40px 40px 40px 40px;font-size: 14px">Ver</button></td><td>' + dat.ocacion + '</td></tr>';
-                        }
-                    });
-                    break;
-                case '3':
-                    localStorage.setItem("tipoIns", "3");
-                    iterador.forEach(function(dat) {
-                        dat.ocacion = '1ra';
-                        if (dat.reinspeccion === '8888')
-                            contenido += '<tr><td>' + dat.placa + '</td><td><button name="dato" value ="' + dat.idhojapruebas + '-' + dat.reinspeccion + '" type="submit" style="border-radius: 40px 40px 40px 40px;font-size: 14px">Ver</button></td><td>' + dat.ocacion + '</td></tr>';
-                    });
-                    break;
-            }
-        document.getElementById(contenedor).innerHTML = contenido;
-    };
-
-    var cargarDatos = function() {
-        $.ajax({
-            url: '<?php echo base_url(); ?>index.php/oficina/CGestion/cargarVehiculos',
-            type: 'post',
-            success: function(rta) {
-                // console.log(rta);
-                var pruebas = JSON.parse(rta);
-                setPlaca('vEnPista', pruebas.vEnPista);
-                setPlaca('vRechSinFirmar', pruebas.vRechSinFirmar);
-                setPlaca('vAproSinFirmar', pruebas.vAproSinFirmar);
-                setPlaca('vRechSinConsecutivo', pruebas.vRechSinConsecutivo);
-                setPlaca('vAproSinConsecutivo', pruebas.vAproSinConsecutivo);
-                setPlaca('vFinalizado', pruebas.vFinalizado);
-            }
-        });
-    };
-
-    var cargarEventosSicov = function(contenedor, iterador, tipo) {
-        var contenido = '';
-        document.getElementById(contenedor).innerHTML = '';
-        if (iterador.length !== 0)
-            iterador.forEach(function(dat) {
-                if (dat.tipo === tipo) {
-                    var msj = dat.respuesta.split('|');
-                    var color = "#ccffcc";
-                    if (msj[3] === 'error')
-                        color = "#ffcccc";
-                    var ocasion = "1ra";
-                    if (dat[2] === '2')
-                        ocasion = "2da";
-                    contenido += '<tr style="background: ' + color + '">\n\
-                                <td><button name="dato" value ="' + dat.respuesta + '" onclick="verDetalleEvento(this)" type="submit" style="border-radius: 40px 40px 40px 40px;font-size: 14px" data-toggle="modal" data-target="#detalleModal">Ver</button></td>\n\
-                                <td>' + dat.idelemento + '</td>\n\
-                                <td>' + ocasion + '</td>\n\
-                                <td>' + dat.fecha + '</td>\n\
-                                <td>' + msj[0] + '</td>\n\
-                              </tr>';
-                }
-            });
-        document.getElementById(contenedor).innerHTML = contenido;
-    };
-
-    var cargarSICOV = function() {
-        $.ajax({
-            url: '<?php echo base_url(); ?>index.php/oficina/CGestion/cargarSICOV',
-            type: 'post',
-            success: function(rta) {
-                var eventos = JSON.parse(rta);
-                cargarEventosSicov('eventosPIN', eventos.sicovEventos, 'p');
-                cargarEventosSicov('eventosFUR', eventos.sicovEventos, 'f');
-                cargarEventosSicov('eventosRUNT', eventos.sicovEventos, 'r');
-                cargarEventosPruebas(eventos.sicovEventos);
-            }
-        });
-    };
-
-    var enviarEventosINDRA = function() {
-        var data = {
-            sicovModoAlternativo: sicovModoAlternativo,
-            ipSicovAlternativo: ipSicovAlternativo,
-            ipSicov: ipSicov,
-            idCdaRUNT: idCdaRUNT
-        };
-        $.ajax({
-            url: '<?php echo base_url(); ?>index.php/oficina/CGestion/enviarEventosIndra',
-            type: 'post',
-            data: data
-        });
-    };
-
-    var versionEstadoSicovAlternativo = '';
-    var pollingEstadoSicovAlternativo = null;
-
-    var aplicarEstadoSicovAlternativo = function(estado) {
-        if (!estado) {
-            return;
-        }
-        sicovModoAlternativo = estado.activo;
-        ipSicovAlternativo = estado.url;
-        localStorage.setItem('sicovModoAlternativo', sicovModoAlternativo);
-        localStorage.setItem('ipSicovAlternativo', ipSicovAlternativo);
-        document.getElementById('direccionamientoSICOV').value = sicovModoAlternativo;
-        document.getElementById('ipDireccionamientoSICOV').value = ipSicovAlternativo;
-    };
-
-    var consultarEstadoSicovAlternativo = function() {
-        $.ajax({
-            url: '<?php echo base_url(); ?>index.php/oficina/CGestion/getEstadoSicovAlternativo',
-            type: 'post',
-            dataType: 'json',
-            success: function(rta) {
-                if (rta && rta.success === true) {
-                    if (versionEstadoSicovAlternativo !== rta.version) {
-                        aplicarEstadoSicovAlternativo(rta.estado);
-                        versionEstadoSicovAlternativo = rta.version;
-                    }
-                }
-            }
-        });
-    };
-
-    var guardarEstadoSicovAlternativo = function(activo, url, onSuccess) {
-        $.ajax({
-            url: '<?php echo base_url(); ?>index.php/oficina/CGestion/setEstadoSicovAlternativo',
-            type: 'post',
-            dataType: 'json',
-            data: {
-                activo: activo,
-                url: url
-            },
-            success: function(rta) {
-                if (rta && rta.success === true) {
-                    aplicarEstadoSicovAlternativo(rta.estado);
-                    versionEstadoSicovAlternativo = rta.version;
-                    if (typeof onSuccess === 'function') {
-                        onSuccess(rta.estado);
-                    }
-                } else {
-                    Toast.fire({
-                        icon: "warning",
-                        title: "Atención",
-                        text: (rta && rta.mensaje) ? rta.mensaje : 'No se pudo guardar el estado alternativo de SICOV',
-                    });
-                    consultarEstadoSicovAlternativo();
-                }
-            },
-            error: function() {
-                Toast.fire({
-                    icon: "warning",
-                    title: "Atención",
-                    text: 'No se pudo guardar el estado alternativo de SICOV',
-                });
-                consultarEstadoSicovAlternativo();
-            }
-        });
-    };
-
-    var iniciarGestorEstadoSicovAlternativo = function() {
-        consultarEstadoSicovAlternativo();
-        if (pollingEstadoSicovAlternativo === null) {
-            pollingEstadoSicovAlternativo = setInterval(function() {
-                consultarEstadoSicovAlternativo();
-            }, 5000);
-        }
-    };
-
-    window.onload = function() {
-        // Valores vigentes de las IP de SICOV en el localStorage (los usan otras vistas, ej. Vpruebas)
-        localStorage.setItem('sicovModoAlternativo', sicovModoAlternativo);
-        localStorage.setItem('ipSicovAlternativo', ipSicovAlternativo);
-        if (document.getElementById('ipSicov2')) {
-            localStorage.setItem('ipSicov2', document.getElementById('ipSicov2').value);
-        }
-        //        if (localStorage.getItem("dominio") == undefined || localStorage.getItem("dominio") == "") {
-        //            getDominio();
-        //        } else {
-        //            
-        //            dominio = localStorage.getItem("dominio");
-        //        }
-        cargarDatos();
-       // cargarSICOV();
-        if (localStorage.getItem("tipoIns") !== null && localStorage.getItem("tipoIns") !== undefined) {
-            var element = document.getElementById("tipo_inspeccion");
-            element.value = localStorage.getItem("tipoIns");
-            setEscenario(element);
-        }
-
-
-        if (sicov === 'INDRA' && activoSicov === '1') {
-            iniciarGestorEstadoSicovAlternativo();
-        }
-        if (moduloPrerevision === "0") {
-            document.getElementById('pre_email').style.display = "none";
-        }
-        reload();
-    };
-
-
-
-    const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 5000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-        },
-        customClass: {
-            container: 'swal2-container-above-modal'
-        },
-        target: 'body'
-    });
-
-    // Add CSS to ensure toast appears above modals
-    const style = document.createElement('style');
-    style.textContent = `
-        .swal2-container-above-modal {
-            z-index: 2000 !important;
-        }
-    `;
-    document.head.appendChild(style);
-
-    var changeIpSicovAlternativo = function() {
-        var url = $.trim(document.getElementById('ipDireccionamientoSICOV').value);
-        document.getElementById('direccionamientoSICOV').value = '0';
-        guardarEstadoSicovAlternativo('0', url);
-    }
-
-
-    var guardarIpSicov2 = function() {
-        $.ajax({
-            url: '<?php echo base_url(); ?>index.php/oficina/CGestion/setIpSicov2',
-            type: 'post',
-            dataType: 'json',
-            data: {
-                url: $.trim(document.getElementById('ipSicov2').value)
-            },
-            success: function(rta) {
-                if (rta && rta.success === true) {
-                    document.getElementById('ipSicov2').value = rta.url;
-                    localStorage.setItem('ipSicov2', rta.url);
-                    Toast.fire({
-                        icon: "success",
-                        title: "Actualizado",
-                        text: 'IP de SICOV v2.0 guardada.',
-                    });
-                } else {
-                    Toast.fire({
-                        icon: "warning",
-                        title: "Atención",
-                        text: (rta && rta.mensaje) ? rta.mensaje : 'No se pudo guardar la IP de SICOV v2.0',
-                    });
-                }
-            },
-            error: function() {
-                Toast.fire({
-                    icon: "warning",
-                    title: "Atención",
-                    text: 'No se pudo guardar la IP de SICOV v2.0',
-                });
-            }
-        });
-    };
-
-    var activarSicovAlternativo = function(e) {
-        var url = $.trim(document.getElementById('ipDireccionamientoSICOV').value);
-        if (e.value === '1' && url === '') {
-
-            Toast.fire({
-                icon: "warning",
-                title: "Atención",
-                text: 'Debe ingresar la URL del direccionamiento alternativo',
-            });
-            document.getElementById('direccionamientoSICOV').value = '0';
-            return;
-        }
-
-        guardarEstadoSicovAlternativo(e.value, url, function(estado) {
-            if (estado.activo === '1') {
-                Toast.fire({
-                    icon: "info",
-                    title: "Atención",
-                    text: 'El direccionamiento alternativo quedó activo de forma global y persistente para todas las sesiones conectadas.',
-                    timer: 10000,
-                });
-            } else {
-                Toast.fire({
-                    icon: "success",
-                    title: "Actualizado",
-                    text: 'El direccionamiento alternativo quedó desactivado globalmente.',
-                });
-            }
-        });
-
-        if (e.value !== '1') {
-            Toast.fire({
-                icon: "info",
-                title: "Sincronizando",
-                text: 'Actualizando estado global de direccionamiento alternativo...',
-                timer: 2500,
-            });
-        }
-    };
-
-    
-    var cargarEventosPruebas = function(iterador) {
-        var contenido = '';
-        document.getElementById('eventosPruebas').innerHTML = '';
-        if (iterador.length !== 0)
-            iterador.forEach(function(dat) {
-                if (dat.tipo === 'e') {
-                    var color = "#ccffcc";
-                    var msj = dat.respuesta.split('|');
-                    if (dat.enviado === '0') {
-                        color = "#ffffcc";
-                    } else if (dat.enviado === '1') {
-                        color = "#ccffcc";
-                    } else {
-                        color = "#ffcccc";
-                    }
-                    contenido += '<tr style="background: ' + color + '">\n\
-                                <td><button name="dato" value ="' + dat.respuesta + '" onclick="verDetalleEvento(this)" type="submit" style="border-radius: 40px 40px 40px 40px;font-size: 14px" data-toggle="modal" data-target="#detalleModal">Ver</button></td>\n\
-                                <td>' + dat.idelemento + '</td>\n\
-                                <td>' + dat.fecha + '</td>\n\
-                                <td>' + msj[0] + '</td>\n\
-                              </tr>';
-                }
-            });
-        document.getElementById('eventosPruebas').innerHTML = contenido;
-    };
-
-    var migracionPrerevision = function() {
-        $.ajax({
-            url: '<?php echo base_url(); ?>index.php/oficina/CGestion/migracionPrerevision'
-        });
-    }
-
-
-
-    var ranTh = function(param, idm) {
-        if (param === 0) {
-            $.ajax({
-                url: '<?php echo base_url(); ?>index.php/oficina/CGestion/ranTh'
-            });
-        } else {
-
-            $.ajax({
-                url: '<?php echo base_url(); ?>index.php/oficina/CGestion/ranTh1',
-                type: 'post',
-                data: {
-                    idm: idm
-                }
-            });
-        }
-
-    };
-
-    var enviarAuditoria = function() {
-        $.ajax({
-            url: '<?php echo base_url(); ?>index.php/oficina/CGestion/consultarAuditoria',
-            success: function(rta) {
-                var rta_ = JSON.parse(rta);
-                if (rta_.toString() !== "") {
-                    rta_.forEach(function(a) {
-                        var data = {
-                            placa: a.placa,
-                            idprueba: a.idprueba,
-                            idresultado: a.idresultado,
-                            intento: a.intento
-                        };
-                        $.ajax({
-                            url: "http://" + localStorage.getItem("dominio") + "/cda/index.php/Cservicio/insertAuditoria",
-                            type: 'post',
-                            data: data,
-                            success: function(r) {}
-                        });
-                    });
-                }
-            }
-        });
-    };
-
-    var enviarPlacaSalaE = function() {
-        $.ajax({
-            url: '<?php echo base_url(); ?>index.php/oficina/CGestion/consultarPlacaSalaE',
-            success: function(rta) {
-                var rta_ = JSON.parse(rta);
-                if (rta_.toString() !== "") {
-                    rta_.forEach(function(a) {
-                        console.log(CARinformeActivo);
-                        if (CARinformeActivo === "1" && (a.idtipo_prueba === "3" || a.idtipo_prueba === "2") && a.estado !== "0" && a.estado !== "3") {
-                            getResultadosGases(a);
-                        }
-                        var data = {
-                            idhojaprueba: a.idhojaprueba,
-                            idtipo_prueba: a.idtipo_prueba,
-                            estado: a.estado
-                        };
-                        $.ajax({
-                            url: "http://" + localStorage.getItem("dominio") + "/cda/index.php/Csala/actualizarPrueba",
-                            type: 'post',
-                            data: data,
-                            success: function(r) {
-                                console.log(r);
-                            }
-                        });
-                    });
-                }
-            }
-        });
-    };
-
-
-    //    var getDominio = function () {
-    //        $.ajax({
-    //            url: '<?php echo base_url(); ?>index.php/Cconfiguracion/getDominio',
-    //            type: 'post',
-    //            
-    //            success: function (dominio_) {
-    //                if (dominio_ !== '') {
-    //                    localStorage.setItem("dominio", dominio_);
-    //                    dominio = dominio_;
-    //                }
-    //            }
-    //        });
-    //    };
-
-    var cEnPista = 0;
-    var cRechSinFirmar = 0;
-    var cAproSinFirmar = 0;
-    var cRechSinConsecutivo = 0;
-    var cAproSinConsecutivo = 0;
-    var cRechaFin = 0;
-    var cAproFin = 0;
-
-    
-
-    var verDetalleEvento = function(e) {
-        $('#detalleSICOV').text(e.value);
-    };
-
-    var setEscenario = function(e) {
-        cargarDatos();
-        //cargarSICOV();
-        //        if (sicov === 'INDRA' && activoSicov === '1')
-        //            enviarEventosINDRA();
-        var colsSicov = document.getElementById("colsSicov");
-        var eventosSICOV = document.getElementById("eventosSICOV");
-        if (e.value === '1') {
-            $('#TitRech').text('RECHAZADO SIN FIRMAR');
-            $('#TitApro').text('APROBADO SIN FIRMAR');
-            // colsSicov.style.visibility = 'visible';
-            // eventosSICOV.style.visibility = 'visible';
-            colsSicov.style.visibility = 'visible';
-            eventosSICOV.style.visibility = 'hidden';
-        } else {
-            $('#TitRech').text('RECHAZADOS');
-            $('#TitApro').text('APROBADOS');
-            colsSicov.style.visibility = 'hidden';
-            eventosSICOV.style.visibility = 'hidden';
-        }
-    };
-    var idhojaprueba = 0;
-    var idprerevision = 0;
-    var datos = "";
-    var enviarEmail = function(ev, data) {
-        $('#mensaje').html('Bienvenido');
-        ev.preventDefault();
-        var dat = data.split('|');
-        document.getElementById('btnEnviar').disabled = false;
-        $('#datEmail').val(dat[1]);
-        idhojaprueba = dat[0];
-        idprerevision = dat[2];
-        datos = dat[0] + "-" + dat[3] + "-" + dat[4].replace("-", "") + "-" + '1';
-    }
-
-    function enviarEmailData() {
-        var emaild = $('#datEmail').val();
-        if (envioCorreo === "1") {
-            document.getElementById('btnEnviar').disabled = true;
-            $('#mensaje').html('Enviado Información, por favor espere.');
-            //        console.log(emaild, idpred);
-            if ((idhojaprueba === null || idhojaprueba === "") || (emaild === null || emaild === "")) {
-                $('#cancelar').click();
-                Swal.fire({
-                    icon: 'error',
-                    text: 'Campo email vacio.'
-                });
-            } else {
-                $.ajax({
-                    url: '<?php echo base_url(); ?>index.php/oficina/fur/CFUR',
-                    type: 'post',
-                    data: {
-                        dato: datos,
-                        email: emaild
-                    },
-                    success: function(data, textStatus, jqXHR) {
-                        var v = 0;
-                        if (document.getElementById('email_prerevision').checked) {
-                            v = enviarPrerevision(emaild);
-                        }
-                        $('#cancelar').click();
-                        if (v == 1 || data == 1) {
-                            Swal.fire({
-                                icon: 'success',
-                                text: 'Email enviado con exito.',
-                            })
-                        }
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        $('#cancelar').click();
-                        Swal.fire({
-                            icon: 'error',
-                            html: 'No se pudo enviar el email.<br>'.jqXHR,
-                        })
-                    }
-                })
-            }
-        } else {
-            $('#cancelar').click();
-            Swal.fire({
-                icon: 'error',
-                html: 'Apreciado usuario, usted no tiene habilitado este módulo de envío. por favor comuníquese con TECMMAS SAS<br>',
-            });
-        }
-
-    }
-
-    function enviarPrerevision(emaild) {
-        $.ajax({
-            url: '<?php echo base_url(); ?>index.php/oficina/informes/CPrerevision/generar',
-            type: 'post',
-            mimeType: 'json',
-            data: {
-                savePdf: 1,
-                idpre_prerevision: idprerevision,
-                email: emaild
-            },
-            success: function(data, textStatus, jqXHR) {
-                return 1;
-
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                return 0;
-            }
-        });
-    }
-
-    function getResultadosGases(p) {
-        iniciarSample();
-        $.ajax({
-            url: '<?php echo base_url(); ?>index.php/oficina/CGestion/getResultadoGases',
-            type: 'post',
-            mimeType: 'json',
-            data: {
-                idprueba: p.idprueba
-            },
-            success: function(datos) {
-                dataSample.placa = datos[0].numero_placa;
-                dataSample.tipo = datos[0].norma;
-                if (datos[0].norma === "4231") {
-                    dataSample.ltoe = datos[0].LTOE;
-                    dataSample.fallatemp = datos[0].Falla_por_temperatura_motor_disel;
-                }
-                datos.forEach(function(d) {
-                    switch (d.idconfig_prueba) {
-                        case "85":
-                            dataSample.rpmralenti = d.valor;
-                            break;
-                        case "87":
-                            dataSample.hcralenti = d.valor;
-                            break;
-                        case "88":
-                            dataSample.coralenti = d.valor;
-                            break;
-                        case "89":
-                            dataSample.co2ralenti = d.valor;
-                            break;
-                        case "90":
-                            dataSample.o2ralenti = d.valor;
-                            break;
-                        case "91":
-                            dataSample.rpmcrucero = d.valor;
-                            break;
-                        case "92":
-                            dataSample.hccrucero = d.valor;
-                            break;
-                        case "93":
-                            dataSample.cocrucero = d.valor;
-                            break;
-                        case "94":
-                            dataSample.co2crucero = d.valor;
-                            break;
-                        case "95":
-                            dataSample.o2crucero = d.valor;
-                            break;
-                        case "41":
-                            dataSample.rpmcpre = d.valor;
-                            break;
-                        case "63":
-                            dataSample.rpmcpri = d.valor;
-                            break;
-                        case "64":
-                            dataSample.rpmcseg = d.valor;
-                            break;
-                        case "65":
-                            dataSample.rpmcter = d.valor;
-                            break;
-                        case "34":
-                            dataSample.opacidadcpre = d.valor;
-                            break;
-                        case "35":
-                            dataSample.opacidadcpri = d.valor;
-                            break;
-                        case "36":
-                            dataSample.opacidadcseg = d.valor;
-                            break;
-                        case "37":
-                            dataSample.opacidadcter = d.valor;
-                            break;
-                        case "39":
-                            dataSample.tempfinal = d.valor;
-                            break;
-                        default:
-
-                            break;
-                    }
-                });
-                //                envioResulGases(dataSample, p.idprueba)
-                //                console.log(dataSample);
-            },
-            error: function(jqXHR) {
-                console.log(jqXHR);
-            }
-        });
-    }
-
-    function envioResulGases(dataSample, idprueba) {
-        var data = new Object();
-        data.sample = dataSample;
-        //        console.log(JSON.stringify(data.sample));
-        $.ajax({
-            type: "POST",
-            url: "http://" + ipCAR + "/cdapp/rest/medicion/captura",
-            headers: {
-                "Authorization": "b56c19aa217e36a6c182be3ce6fab1851c32a6860f74a312f2cf6d230f6c1573",
-                "Content-Type": "application/json"
-            },
-
-            data: JSON.stringify(data),
-            success: function(rta) {
-                console.log(rta)
-                if (rta.resp == "OK") {
-                    var estado = 1;
-                    var tipo = 'Envio sample exitoso.';
-                    guardarTabla(estado, tipo, idprueba);
-                } else {
-                    var estado = 0;
-                    var tipo = 'Envio sample fallido.';
-                    guardarTabla(estado, tipo, idprueba);
-                }
-            },
-            errors: function(rta) {
-                console.log(rta);
-            }
-        });
-    }
-
-    function guardarTabla(estado, tipo, idprueba) {
-        $.ajax({
-            type: "POST",
-            url: "<?php echo base_url(); ?>index.php/oficina/fur/CFUR/saveControl",
-            data: {
-                estado: estado,
-                tipo: tipo,
-                idprueba: idprueba
-            },
-            success: function(rta) {
-                console.log(rta);
-            },
-            errors: function(rta) {
-                console.log(rta);
-            }
-        });
-    }
-    var dataSample = new Object();
-    var iniciarSample = function() {
-        dataSample.placa = "";
-        dataSample.tipo = "";
-        dataSample.rpmralenti = "";
-        dataSample.hcralenti = "";
-        dataSample.coralenti = "";
-        dataSample.co2ralenti = "";
-        dataSample.o2ralenti = "";
-        dataSample.rpmcrucero = "";
-        dataSample.hccrucero = "";
-        dataSample.cocrucero = "";
-        dataSample.co2crucero = "";
-        dataSample.o2crucero = "";
-        dataSample.opacidadcpre = "";
-        dataSample.rpmcpre = "";
-        dataSample.opacidadcpri = "";
-        dataSample.rpmcpri = "";
-        dataSample.opacidadcseg = "";
-        dataSample.rpmcseg = "";
-        dataSample.opacidadcter = "";
-        dataSample.rpmcter = "";
-        dataSample.ltoe = "";
-        dataSample.tempfinal = "";
-        dataSample.fallatemp = "";
-        //    sampleData(dataSample);
-    };
-</script>
-<!-- END CONTENT -->
+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
