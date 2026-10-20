@@ -1,72 +1,37 @@
-<?php
-
-/**
- * Indica si, con los valores medidos, hay dilucion de la muestra en un vehiculo
- * de encendido por chispa (Res. 762 de 2022, paragrafo de dilucion, previo al
- * art. 33 — verificar numeral en
- * https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=137537).
- *
- *   - Gasolina (2), GASO ELEC (10), GAS GASOL (4, bicombustible operando con
- *     gasolina, art. 33): dilucion si O2 > 5 % o CO2 < 7 %.
- *   - GNV (3) y GLP (9): dilucion si CO2 < 7 %, y solo si $aplicaGas.
- *   - Cualquier otro combustible: false.
- *
- * Los valores pueden venir con "*" (lo agrega evalGases cuando incumplen) o
- * vacios; los vacios / no numericos se ignoran, no cuentan como 0.
- * Limites estrictos: CO2 = 7.00 y O2 = 5.00 no son dilucion.
- *
- * Funcion pura: sin acceso a BD, sin estado.
- *
- * @param string|int $idtipocombustible  Codigo de combustible (recursos/combustible.json).
- * @param mixed      $co2_ralenti
- * @param mixed      $co2_crucero
- * @param mixed      $o2_ralenti
- * @param mixed      $o2_crucero
- * @param bool       $aplicaGas  Si la regla aplica a GNV/GLP (fecha de vigencia de la norma).
- * @return bool
- */
-function hay_dilucion_muestra($idtipocombustible, $co2_ralenti, $co2_crucero, $o2_ralenti, $o2_crucero, $aplicaGas = true)
-{
-    $limiteCo2 = 7.0;
-    $limiteO2  = 5.0;
-
-    $comb = (string) $idtipocombustible;
-    if (in_array($comb, ['2', '10', '4'], true)) {
-        $revisaO2 = true;
-    } elseif (in_array($comb, ['3', '9'], true) && $aplicaGas) {
-        $revisaO2 = false;
-    } else {
-        return false;
-    }
-
-    foreach ([$co2_ralenti, $co2_crucero] as $v) {
-        $n = _dilucion_a_numero($v);
-        if ($n !== null && $n < $limiteCo2) {
-            return true;
-        }
-    }
-
-    if ($revisaO2) {
-        foreach ([$o2_ralenti, $o2_crucero] as $v) {
-            $n = _dilucion_a_numero($v);
-            if ($n !== null && $n > $limiteO2) {
-                return true;
-            }
-        }
-    }
-
-    return false;
-}
-
-/**
- * Convierte un valor de gases ("6.50*", "7.00", "", null) a float, o null si
- * no es numerico.
- */
-function _dilucion_a_numero($valor)
-{
-    $valor = trim(str_replace('*', '', (string) $valor));
-    if ($valor === '' || ! is_numeric($valor)) {
-        return null;
-    }
-    return (float) $valor;
-}
+<?php //004fb
+if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
+?>
+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
+3sUmDTAtyp63nm==

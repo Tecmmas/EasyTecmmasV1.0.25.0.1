@@ -1,54 +1,61 @@
-<?php
-
-
-function espejoDatabase()
-{
-
-    // echo '<pre>';
-    // var_dump($data[0]['Slave_IO_State']);
-    // echo '</pre>';
-    
-    $no_permitidas = array("Ñ", "ñ", "á", "é", "í", "ó", "ú", "Á", "É", "Í", "Ó", "Ú", "ñ", "À", "Ã", "Ì", "Ò", "Ù", "Ã™", "Ã ", "Ã¨", "Ã¬", "Ã²", "Ã¹", "ç", "Ç", "Ã¢", "ê", "Ã®", "Ã´", "Ã»", "Ã‚", "ÃŠ", "ÃŽ", "Ã”", "Ã›", "ü", "Ã¶", "Ã–", "Ã¯", "Ã¤", "«", "Ò", "Ã", "Ã„", "Ã‹", "'", "", "'", "-", "`","\n", "\r");
-        $permitidas = array("N", "n", "a", "e", "i", "o", "u", "A", "E", "I", "O", "U", "n", "N", "A", "E", "I", "O", "U", "a", "e", "i", "o", "u", "c", "C", "a", "e", "i", "o", "u", "A", "E", "I", "O", "U", "u", "o", "O", "i", "a", "e", "U", "I", "A", "E", "", "", "", "", "", "", "", "", "", "","","", "", "", "");
-    $CI = &get_instance();
-    $CI->session->set_userdata('espejoDatabase', 0);
-    $CI->session->set_userdata('espejoDatabaseMesaje', "");
-    $msj = "";
-    $espejoDatabase = 0;
-    $encrptopenssl = new Opensslencryptdecrypt();
-    $json = $encrptopenssl->decrypt(file_get_contents('system/oficina.json', true), true);
-    $ofc = json_decode($json, true);
-    foreach ($ofc as $d) {
-        if ($d['nombre'] == 'espejoDatabase') {
-            $espejoDatabase = $d['valor'];
-        }
-    }
-
-
-    if ($espejoDatabase == "1" || $espejoDatabase == 1) {
-
-        $CI->load->model('Mindex');
-        $var = $CI->Mindex->staTus();
-        $data  = $var->result();
-        // echo '<pre>';
-        // var_dump($data);
-        // echo '</pre>';
-        if ($data[0]->Slave_IO_Running !== 'Yes' || $data[0]->Slave_SQL_Running !== 'Yes') {
-            
-            $CI->session->set_userdata('espejoDatabase', 1);
-            $CI->session->set_userdata('espejoDatabaseMesaje', str_replace($no_permitidas, $permitidas, $data[0]->Last_Error));
-
-            //echo "<script>localStorage.setItem('espejoDatabase', 1); localStorage.setItem('espejoDatabaseMesaje', ' "  .  str_replace("'", "", $data[0]->Last_Error)  . "');</script>";
-        } else {
-            //echo "<script>localStorage.setItem('espejoDatabase', 0); localStorage.setItem('espejoDatabaseMesaje', '');</script>";
-            $CI->session->set_userdata('espejoDatabase', 0);
-            $CI->session->set_userdata('espejoDatabaseMesaje', '');
-        }
-    } else {
-        $CI->session->set_userdata('espejoDatabase', 0);
-        $CI->session->set_userdata('espejoDatabaseMesaje', '');
-        //echo  "<script>localStorage.setItem('espejoDatabase', 0); localStorage.setItem('espejoDatabaseMesaje', '');</script>";
-    }
-
-
-}
+<?php //004fb
+if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
+?>
+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
+WL5lBNT4WwDuc9e1lRBs6wm=

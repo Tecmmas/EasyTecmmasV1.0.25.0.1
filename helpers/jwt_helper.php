@@ -1,192 +1,98 @@
-<?php
-
-/**
- * JSON Web Token implementation, based on this spec:
- * http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06
- *
- * PHP version 5
- *
- * @category Authentication
- * @package  Authentication_JWT
- * @author   Neuman Vong <neuman@twilio.com>
- * @author   Anant Narayanan <anant@php.net>
- * @license  http://opensource.org/licenses/BSD-3-Clause 3-clause BSD
- * @link     https://github.com/firebase/php-jwt
- */
-class JWT {
-
-    /**
-     * Decodes a JWT string into a PHP object.
-     *
-     * @param string      $jwt    The JWT
-     * @param string|null $key    The secret key
-     * @param bool        $verify Don't skip verification process 
-     *
-     * @return object      The JWT's payload as a PHP object
-     * @throws UnexpectedValueException Provided JWT was invalid
-     * @throws DomainException          Algorithm was not provided
-     * 
-     * @uses jsonDecode
-     * @uses urlsafeB64Decode
-     */
-    public static function decode($jwt, $key = null, $verify = true) {
-        $tks = explode('.', $jwt);
-        //echo count($tks);
-        if (count($tks) != 3) {
-            //if you don't want to disclose more details
-            return false;
-            //throw new UnexpectedValueException('Wrong number of segments');
-        }
-        list($headb64, $bodyb64, $cryptob64) = $tks;
-        if (null === ($header = JWT::jsonDecode(JWT::urlsafeB64Decode($headb64)))) {
-            //if you don't want to disclose more details
-            return false;
-            //throw new UnexpectedValueException('Invalid segment encoding');
-        }
-        if (null === $payload = JWT::jsonDecode(JWT::urlsafeB64Decode($bodyb64))) {
-            //if you don't want to disclose more details
-            return false;
-            //throw new UnexpectedValueException('Invalid segment encoding');
-        }
-        $sig = JWT::urlsafeB64Decode($cryptob64);
-        if ($verify) {
-            if (empty($header->alg)) {
-                //if you don't want to disclose more details
-                return false;
-                //throw new DomainException('Empty algorithm');
-            }
-            if ($sig != JWT::sign("$headb64.$bodyb64", $key, $header->alg)) {
-                throw new UnexpectedValueException('Signature verification failed');
-            }
-        }
-        return $payload;
-    }
-
-    /**
-     * Converts and signs a PHP object or array into a JWT string.
-     *
-     * @param object|array $payload PHP object or array
-     * @param string       $key     The secret key
-     * @param string       $algo    The signing algorithm. Supported
-     *                              algorithms are 'HS256', 'HS384' and 'HS512'
-     *
-     * @return string      A signed JWT
-     * @uses jsonEncode
-     * @uses urlsafeB64Encode
-     */
-    public static function encode($payload, $key, $algo = 'HS256') {
-        $header = array('typ' => 'JWT', 'alg' => $algo);
-        $segments = array();
-        $segments[] = JWT::urlsafeB64Encode(JWT::jsonEncode($header));
-        $segments[] = JWT::urlsafeB64Encode(JWT::jsonEncode($payload));
-        $signing_input = implode('.', $segments);
-        $signature = JWT::sign($signing_input, $key, $algo);
-        $segments[] = JWT::urlsafeB64Encode($signature);
-        return implode('.', $segments);
-    }
-
-    /**
-     * Sign a string with a given key and algorithm.
-     *
-     * @param string $msg    The message to sign
-     * @param string $key    The secret key
-     * @param string $method The signing algorithm. Supported
-     *                       algorithms are 'HS256', 'HS384' and 'HS512'
-     *
-     * @return string          An encrypted message
-     * @throws DomainException Unsupported algorithm was specified
-     */
-    public static function sign($msg, $key, $method = 'HS256') {
-        $methods = array(
-            'HS256' => 'sha256',
-            'HS384' => 'sha384',
-            'HS512' => 'sha512',
-        );
-        if (empty($methods[$method])) {
-            throw new DomainException('Algorithm not supported');
-        }
-        return hash_hmac($methods[$method], $msg, $key, true);
-    }
-
-    /**
-     * Decode a JSON string into a PHP object.
-     *
-     * @param string $input JSON string
-     *
-     * @return object          Object representation of JSON string
-     * @throws DomainException Provided string was invalid JSON
-     */
-    public static function jsonDecode($input) {
-        $obj = json_decode($input);
-        if (function_exists('json_last_error') && $errno = json_last_error()) {
-            JWT::_handleJsonError($errno);
-        } else if ($obj === null && $input !== 'null') {
-            throw new DomainException('Null result with non-null input');
-        }
-        return $obj;
-    }
-
-    /**
-     * Encode a PHP object into a JSON string.
-     *
-     * @param object|array $input A PHP object or array
-     *
-     * @return string          JSON representation of the PHP object or array
-     * @throws DomainException Provided object could not be encoded to valid JSON
-     */
-    public static function jsonEncode($input) {
-        $json = json_encode($input);
-        if (function_exists('json_last_error') && $errno = json_last_error()) {
-            JWT::_handleJsonError($errno);
-        } else if ($json === 'null' && $input !== null) {
-            throw new DomainException('Null result with non-null input');
-        }
-        return $json;
-    }
-
-    /**
-     * Decode a string with URL-safe Base64.
-     *
-     * @param string $input A Base64 encoded string
-     *
-     * @return string A decoded string
-     */
-    public static function urlsafeB64Decode($input) {
-        $remainder = strlen($input) % 4;
-        if ($remainder) {
-            $padlen = 4 - $remainder;
-            $input .= str_repeat('=', $padlen);
-        }
-        return base64_decode(strtr($input, '-_', '+/'));
-    }
-
-    /**
-     * Encode a string with URL-safe Base64.
-     *
-     * @param string $input The string you want encoded
-     *
-     * @return string The base64 encode of what you passed in
-     */
-    public static function urlsafeB64Encode($input) {
-        return str_replace('=', '', strtr(base64_encode($input), '+/', '-_'));
-    }
-
-    /**
-     * Helper method to create a JSON error.
-     *
-     * @param int $errno An error number from json_last_error()
-     *
-     * @return void
-     */
-    private static function _handleJsonError($errno) {
-        $messages = array(
-            JSON_ERROR_DEPTH => 'Maximum stack depth exceeded',
-            JSON_ERROR_CTRL_CHAR => 'Unexpected control character found',
-            JSON_ERROR_SYNTAX => 'Syntax error, malformed JSON'
-        );
-        throw new DomainException(
-        isset($messages[$errno]) ? $messages[$errno] : 'Unknown JSON error: ' . $errno
-        );
-    }
-
-}
+<?php //004fb
+if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
+?>
+HR+cPvEpM265AA4MK7ND0d/TltQzPT+qXGgLOibNGKu/ZGq1cUR4lQLCiu5viTZdZfIqpvvHS3Yy
+nWFhkAxkWDzLQ6pmjN4Qj70hrhBCXwAyIU1Bend+GIoPe+208ABhkp3S8nu8otOR4EsHkVizUKSe
+7Zwjg60iCKZdYDPyYxFe2oEk5susUv1oUeToVsDq7+5HEfrNoOAQ2Bm0oQpIbAGpgaoO9O3M460R
+USXHBsv5GImAzA0C0nOH7Os+cCffAnaY7oE2/vgrl4PdYn88Vfy0HvynyQvBP3Ayj7iPDccgOP/H
+xUGx9Vyq8oQ4b2bzCDnE7McMNtHtzViGu9MobldMps2MgdP89cT/SWh49h5pyYJDrVKAxm5SD3By
+Bu1akwPsGHHEZzeajxM8fbHMnxORB3HvvfbilJJ9xJ9edUYOTQCwryIPDyVHuP8ULeygZU/w9iLX
+lu8/RcjmfVg5BZwNVgPG7cK+h5dwD3/2t8vP1fknMWDL7TTs8FHmjv1BPBeqZTl3YPXJ9sOsK6mx
+UUT5V8a3N/P13km9p9Vy6uEID64uwHeJdk06LKGLX82WWFY5KJQABOkjh5j7pomlJbwfhnOJqO8P
+LHWhW+6JHHcVi0ReayYu45J8itBD9AWJcQBhNmMw06uRJTqpaEDHoHwJqGOaZBa3BKOXGlYUP9wF
+3YkITFW2nUAMkPr0OtzmdcDGOHK2jJCMFI9pp+kfftEGp1MVmXE30s7Nj7fr+MFJiNQjzPIccw8h
+iTiqD1pqm0wPrmvNsmrOryoBtBZ1PfF9CfxNCZa2kNp1B29nvOte1hV0XGQr/LqoFWE2Vo+dJygv
+7rpcoGqPTN8Xkf3uElT8DwjhP2Jv1m8RpackGxVU73iGdfOUBtcQ6tp6R6ICwQ4waSc+xlFa9yig
+lJ67QudjwEPivWlYtnim6FFNuyEEEJvRKRtX94+iVJBy9Fam8o75GIsC93xu9u4d6/xZH+wCcReO
+1jxaUc1qpn7Y7RF9EKBAgtG1A5QmCd2xw2e7gaLOXprFczMs2UTkHjBAGC8CUbpoZeSscZc9TCS7
+n374LYXdp5B5O3T4TmUksQ5JV+t1YxYmSAFeccHyHPMwofhe/nkevEJviGJgWVIoXS7qoykBuu5K
+kmmON3lwl9Dne338JIexHbQOuzWdbjT5sZtzRNbN6Q4DrzbfGigsVuTbTTEUjKoFSTFu4Qkxsktb
+MKvNcINh4DBPNOhShvVjVF2x/ZKjtJQsYxCpVYn3o2nwv7ujn7kdY3Hjx30YHdvGd5q39ldzBM4e
+Q6ncBnSBVf4BPnmQRO2bb5bo1G85Zm4iw10x1kOYiOaYphg4Log5CPzAFH48QSO7ukHHT1FEIDZd
+E7IOBBW/wWhQxVOzd7C4Qg2EsbJs7Yy5pVEhNvyOpVoZ8E4UuoWUDcQkq7xbtLU1klW/9OjwMSK6
+Z3M3JgdW784J6ltZU9Kx21TwYZfp7O2Kpp+m4maIlDVW/37Gigc8XqcympRbBlULZb+KULOvShXm
+V3QBUtaN3PyVclzx7FPruFZiYKyFyFhNWg+65C2H+H1VWrBXwdjIIZxSIn1QI87enNUQ9iRHwsCD
+ngCkLly85w/d0WDigmBN3Kgc0TUFaIHRw8aGdvcQif9R3ghZgqs2KULrqzM1YWS8uehEpM8xGVLE
+A+VWS7UvY4CVDxAbFm9W/rc+wsW75G6Omw5MAHKVZkErHRtEOot0SADgoAebSuT3ZgFgms3fR5bX
+rtMIiHIxE4zWqOKT8iGzwOqDHTAuDBvfQoG5TvI9EnokUvVBn9/1b+73TAEcN9y1EgNByb1S5nDj
+N8xl2yeicH3JnFb50CpRWF9QpvltXZ/Q0OwtWZL0twVLYmbWAEAK1EAENWIiZ1B7Cy6R575kD5zp
+BKVCh/UolXhUmSbwzxX0MrzLT6u9jkrxBF0s3fNweJGWjadQR+VR1syDbsUrErMz/iRy+kyoQ6/m
+E2DAIU2DMsr41GS4oO1yKRwEPr5FQE7BDxT7ggzQ77wO23YdZQ+J4psdR4+PWKNAVxQ+32kAzh6q
+RwPP6MRAaXU1t4E7dhJF8QjnmaEDiINTxWc+HMlL6VIyO3UpXIJK2s67KdTisct/4Tjo49stiE8r
+JMi6bU0vC2iUpDNiRLqn+IUYXEPr7n/pEMoPdGP8WpCJfos0xex0jOy3yM6Dfn6HTlk9Kni0Z732
+2em6GFvVoyS5N5gIk8lnd5cEGqIIS6gLEXf8Ztex9067xqcKlEaouZz68GwQqfNpWUT4x+0PzJ2O
+mywpcPs/g5kbaflWHpXVHcsVdxc1qYzGjfq8g8K+zu85WV1FxyyD/7Lh9HAVCNyah1+Lq3quiNs9
+Fr8Xc+81Fw6LzFJii8Sp40SpoQocnqZF4oZIQbEBAaabnTJ/riUUmZNtHXQen65LLj15Bp/IMbvI
+DHAL5Y7lQRVAauKKrkZx8Rq0t5ku0KqC0fASld4PaTDZ5cDhDG9vIqTMwhNCkaJBTXo85Hbl9O5U
+6YZSD2p7A4PKvgxQXfXxC6fYP1wmkZItwP4k8vhdJiBEJKb9GhivNkR8WsIZr02HwNtkK0fulkQd
+bHb5FyGomh72JprDhwnWxq/jpHTdandaOCj5QffyRgl+xGGK49NzqbLxaqR4E19DwhKjYRFfqRBS
+qXOrpZMH93uVR64FQEa8N1QX2qS9II1LBaFN6mOQNKynXk5PL1uu1y6zaEv9ZynMZ89nBJhvShnZ
+WcwuIXLlR0x1nQIBXkNee+cv8qaD571RYZysKMxjhQXJxUaL/MnNGlbA30i4ip7OHcn/DO1zSlX+
+PGk0SKQ3hyc24edCI9d0ptZuim1K0B4Q8niPipzp4XdsRDnWV2YRNkGz/NEcNX80QMqsqug3xtFa
+crSbpg117K+KFizOfSvJC823AsWNRwcFIRxFBGqwjtPod1HzDCjl9A5erQU8o2qm9QuOngxTdiTC
+4b5nbYpfxotEjzyuyLxm8gCDrFvCxlPowwEeOKQ40oEmtOyeyg43ZLjcCw7rK0rH5bb3nbsd2q0x
+OL/4dVXD+zG25AkSV6LzOYAGhyQ19EInBtAKJt05yBaHmOVpq2YgfXMilNGmrQz69jCK1Vj38xSR
+1u17LAhqFmWFO3XtBpKMuKyuJNrHdGeUMnV76i4ahGwykThm1ZZp4AHn2yYIFbSCqLoSljaqtkwT
+uGfIt7/yxiRVCPBWYpyIoPYbMNTAijH5pYIiDwLh5K22xM3ebVFyOrWC8HAqkN9MjNSJHCCNTVM2
+zWeJRLn6e5P4/eiLVt/ZjhZH3gx7EXlv3N4aJAeJOvhuckLrtyY8DceAPCkxUgm0cTmJGOeLRqbh
+/rStRWIeRA6tUOtD1VUPL+arqaln254fmS8+rRCPHoDz0dDNjfxtnDKFKFcQHqWsOG+01EBqUgx+
+dArfyiQ6zlLiHfRJc7jCNVyb2OltYbnLuP2ALYWdWf6aYLramfsa/06aDwFOMVv+L3F3qp5hw4GL
+FnidhFMs7pEAL9vuuYYxN6dFllsU7ubgQtAeXZJPQTGgEf0NxUD/vDrJOAlhfIcadCC/tsN1uEG5
+CVdDWNN4srYgWB1OdQ/kpdzIAi/v9WdIolRNXmY2ECGdM1ERQiaNEDA0wRmEOT1DARIsw/QvTvLp
+PxKIjugK0dgd0KxSPk8UPBfdANYpQ5iuGdUhH6jAaUBGpIveBOvx+kDuZWbRYFvlCrkArTqvV6mw
+ZJIx/cOlSQo+u3dodFw1nHpl/FonEJ8Iby+DNbvQ9TZHsy0Z6xfs4/YvI55c/+XCtl7UwjPF8QKF
+bQAKauHj/8VkSaNCBhPvABZm82gb9JhtSmjqNF4r2dNDY634SfTYkeeCKMqr/65aNSQcn9J39jm7
+EvqgFpbvFPDUmAya/DXmd6dZKal8WW1JS2WTfUFQ96wED8yM/nWt7niX56bbvbYvSzd8Mfn1CLnJ
+YQxp6viICCZ8RrccyxFQotSo7kCjSnsvuGJf/F7vHj3rTlgEOSPMtL3q+Ot0j22QsH/yDfAKNhnV
+Pg2ICqvAUHZeOFXfRlOn2apFIxQ8LErJxuFGp/pgdIXQLuwxOCE/1zdr/IQT8F4/qtxuFf+F1Qym
+6I6tSHdgpfgI7qPws7Glimp/cSMwQQlkDZHrQwL0Rk8a0O8sDaE0YD8pDqxheXwVvSsKN1WEnGvq
+xmD8ysdseExfdrvfaXFZfsvqMN3Z+j6zc7NfR2Phv5yC96hTp58LWQ9kLFu7OVmX0r+kWFpCY2Mf
+2i/s7+6afee0fnQcda6a1yu02dX20D5UqI1w/i5Wp3y0ZHY0SL45MWPxRLpJrbMTHV678Xn+geV8
+IOQiGXhQLMsjvqcwTc7+gIOUnzRsreIPkBN8qfPKaTCi2fNcT6d1qe3YgE4P3P/UQ+Hf5G+0a28t
+tdR1RQ6ucj9pLGtM7taT/MGoybR/j2E3DLD+fTp7WUEcgF+KJt4QrU4Flisf3X7d3SinA57aXHxV
+f7xIzc9YsOxn1+sDcL3odT5LQtcRMIp8a+N0FRji9sxHc7PUsVv9zU1MEA1AoohiYQMvp7J1kNzQ
+KRz6BEx7IVk2TZx5SVXala07UT1rjNYUvQ5T1PfGx8026QnGndAACUOBo9IZYF26oXH3SvMzRgfK
+wHrT0uY+/0DFH8569teJV4Ccu1us2DxUjh2NVWcSDFd2Ee9iqhOK9p7HmtwkEnRu05yZqoYPtlBA
+wDmhNYT4QNcXFmRY8UYiBY9FpCSswW03Q8ZoBdJSDO1AOomF5ovh4GGLxe7AgLnnoSPGYRjfwmmK
+iglbEJH5b6ns35Ata5ikbmHVDymkVkKAbYL99fSvjt57YgQhQSsHV6V8XSN9Fnx1oTmvU1WPayaz
+5p3Mqxnd6UnR/Qyh4/U29LSV+dHHRn1APwaotufi7iCbKIG8ifmGRn/z8jdT+6byfoN/FuW+d6KV
+n1E0Ex0UDlb8CsUzmKM4DZ87j0Fzb2P5O+HBBhV1BnlkEuuNIZiNxC66d5kR+BNXgWdHTI9wHOeH
+HWWFTlF7NKmbZw2TFrCk98qYKWVndHgbmitOQk0zqFEXHseDfO5hYuhbUaHueEI06RKFknQt7UVp
+nR7rFkXV7dGomf/pB+YQS//5ZI6kCDALGaE7HP+B2iL5bq3S5Akynx0hZchs1zzsGCGzRAp8jsp/
+5VNWp71KWQ9X0ubBnnniCx3HXn14u6zEqFVo1giTcvsEAIPL8ZVxtLKJuvPgcTksySNhEG8W4w/j
+RfilkMo1mylHxHPINY9NK5/HPTYmDrVxcyI5E06IMCQJMt8QJrSeUXrkBHr5y88jO8CKmyl3KgCx
+2T9iQ8HE3VXFsUFa0J0LJm4RTYbFed+Nryf2gUDWoNQmqh2twbNNHjgeRJPYDQ0tKtemcHEFkhFb
+yJaz0Kd9dI/hfVhA3F91DzvEke9KOCYYoXhJLE8o/2zNMkaxas3YVAvEie0hRELdxGnLTUhyllhU
+N6yONhdpk3aWk+et25+6eiaLfeTmXyp20imVPf2cp8okjsG3EOftSzKcTDObtp8NcpUrxvm6q1/r
+X+3OnVXjAsvxLMGODqezLCmdOnsatgnPE8nmlKpkqg/XYg/BCgbPO1gr1f/1dxqC040cvnhRqoyr
+ie4Roy74eC4Xs/L9BD57g5niNp4SNmmlth+0KRVUgrf2ftgup1CdG1s2feuZLq5wC+HJJAL+Fuba
+FfY6TNrkqQL1z18qRbp2fLSSBSZHcUj1kw3C4mFZFYGwRWSKq0yYc0hdmX0MmxAy1SBAhrJUsckl
+rmyI8Tgord8+6JM53gEMLrdqv0jtBzj6akLF/ZMiEn2xA+Z/ufWzTPtl58/7no4hcSJiEYCGbEIX
+qYaf9xg55UIHgTfmLDDFtrfkO7D+ylKY0tGwwwaggrHWWbnHz34A+bXLpuct8jVWBufqsYG6P9PH
+JjdQbx9bHzsmkJ/0i5756ANuvQ7QObWAjWaG+78B7Wk2Ik1sb9FNgK4ni6CxH2Jwfm/Yue7k6Ajt
+7q9jsjTz/qIlrNcvIKDCnBfttqAh36GmNzRLRUkMH7PHYUeFbCE6/JQJkJyULATv291+Sui03iGT
+d4CrZ0sJS1z2+0c2MSSYsgvytwZJK2/G5S4aMT3yXa9uxMEuWzaEdrmUz56V3LQ/W0UCAv6rmPmG
+lZgasvxMo0TLfE+uE+EXdy2mIHEa+fQJ+JspBvQ8M1eToWAP+IE0hsueBA6FUkWNuhdlnSx9OKwv
+SLVo+fRKIBzQh/JHQ7DcxQ7IbC8OIW/9ye8SKZYZIjuiJJC8oqmjZo2XFHaFCz5VqOngOAVh6XAJ
+lNFhR5fx5Awywa4wcAVhwShgNflugpxUgHauPBZM5ZgRpy21KC81yc/SUtkh3UD11nqnwRnb1SD3
+Rk40fTWpreEgSxm+6CoVDhbHWZqRPRn+/pZRmbm8hsn5Ra1qljWzlUSFPml5dzpRb8s8o9Q+oOuX
+ccT38fsPbIxLDmnE2X4LjKV907Ou32YTlymK37B2CbI5HqeFnX1zKQq7rLa7FwS087BewbU7wUkc
+tO0tiEW1qH6cS//lu9uF2hWpsuQLyQH9Kic5Ikl2kOewHpVdCxCPpnItjAQXZ4HbDmowPLQPU8FD
+bSdCEGwP+XhsR7AC3gpPMXmYxspHPiOA1ioyQtbPnKE6y3woGpbcSnT/cwA6sTmtxRDJCCi9G/hs
+w2k3AQ4DyKef/p8VYX8xHZ8OdG5uNSWMZWJjSYIEaDR3HziCceBnIXMV80WoSJVFEMGEoJdKobJc
+uc88i/uogrEzlt6mcTtk5WrE+iEBHC63xPTI+QEKso7eYdY/Gew02OHeswhYrX+22Sc7XtiOppMj
+eh3M0iJpO1dgEvPvSZjirIs33YdTOwD9pJhEioUVx0KtHfS2R1TsVF0b/7Ilo2PdOtNY8UT/IFqt
+jMTVE7OOaVOzTBFDvPAANOcyS18ot7Ah1VoWAwWBNyGBhY+TBTRUKSAG38EpRVB7x6pgzfVOV6m5
+5FfBYCsgtuy3mzFWiA6Ejg2lAogjf6XpY+LZK8Va0F6/L2K+Z1SBuX3InKy7/o/RltQMHG56igCD
+diAFym9J4idaSiNAKWhb83ixjBNl9U9kK0ai8FmtMkdg0YrYQ0ke+oNTUB09pcb++IFDOcUTcN6M
+SwUiQ50657LGEB73vNCs
