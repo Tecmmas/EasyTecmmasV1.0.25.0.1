@@ -1,184 +1,378 @@
-<?php //004fb
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+
+defined('BASEPATH') or exit('No direct script access allowed');
+
+trait Trait_Catalogos
+{
+    public function getCda($fechainicial)
+    {
+        $result = $this->Mcda->getVersion($fechainicial);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            return 'NA';
+        }
+    }
+
+    //------------------------------------------------------------------------------Obtener consecutivo
+    public function getConsecutivo($idhojapruebas)
+    {
+        $data['idhojapruebas'] = $idhojapruebas;
+        $result                = $this->MconsecutivoTC->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0]->idconsecutivotc;
+        } else {
+            return $idhojapruebas;
+        }
+    }
+
+    //------------------------------------------------------------------------------Obtener número ONAC
+    public function getNumeroOnac()
+    {
+        $data['idconfig_prueba'] = '183';
+        $result                  = $this->Mconfig_prueba->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0]->valor;
+        } else {
+            return '';
+        }
+    }
+
+    public function getSede()
+    {
+        $result = $this->Msede->get();
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            return 'NA';
+        }
+    }
+
+    public function getHojatrabajo($idhojapruebas)
+    {
+        $data['idhojapruebas'] = $idhojapruebas;
+        $result                = $this->Mhojatrabajo->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            return 'NA';
+        }
+    }
+
+    public function getFechaReins($idhojapruebas)
+    {
+        $data['idhojapruebas'] = $idhojapruebas;
+        $result                = $this->Mprueba->getLast($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            return 'NA';
+        }
+    }
+
+    public function getFechaLastReins($idhojapruebas, $order)
+    {
+        $data['idhojapruebas'] = $idhojapruebas;
+        $result                = $this->Mprueba->getLastFecha($data, $order);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            return 'NA';
+        }
+    }
+
+    public function getVehiculo($idvehiculo)
+    {
+        $data['idvehiculo'] = $idvehiculo;
+        $result             = $this->Mvehiculo->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            return 'NA';
+        }
+    }
+
+    public function getPropietario($idpropietario)
+    {
+        $data['idcliente'] = $idpropietario;
+        $result            = $this->Mpropietario->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            return 'NA';
+        }
+    }
+
+    public function getCiudad($cod_ciudad)
+    {
+        $data['cod_ciudad'] = $cod_ciudad;
+        $result             = $this->Mciudad->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            echo "<script>
+            alert('Error al cargar el FUR: Se requiere actualizar la ciudad del vehículo o el cliente. Complete esta información en el sistema y si el problema continúa, contacte a soporte técnico.');
+            window.location.href = '" . base_url('index.php/oficina/CGestion') . "';
+        </script>";
+            exit;
+            return 'NA';
+        }
+    }
+
+    public function getDepartamento($cod_depto)
+    {
+        $data['cod_depto'] = $cod_depto;
+        $result            = $this->Mdepartamento->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            return 'NA';
+        }
+    }
+
+    public function getPais($idpais)
+    {
+        $data['idpais'] = $idpais;
+        $result         = $this->Mpais->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            return 'NA';
+        }
+    }
+
+    public function getLinea($idlinea, $vehiculo)
+    {
+        if ($vehiculo->registrorunt == '1' && $vehiculo->migrateLineaMarca == '0') {
+            $data['idlineaRUNT'] = $idlinea;
+            $result              = $this->Mlinea->get($data);
+        } else if ($vehiculo->registrorunt == '1' && $vehiculo->migrateLineaMarca == '1') {
+            $data['idlinea'] = $idlinea;
+            $result          = $this->Mlinea->getmigrateLineaMarca($data);
+        } else {
+            $data['idlinea'] = $idlinea;
+            $result          = $this->Mlinea->get2($data);
+
+        }
+
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            echo "<script>
+            alert('Error al cargar el FUR: Se requiere actualizar línea y marca del vehículo. Complete esta información en el sistema y si el problema continúa, contacte a soporte técnico.');
+            window.location.href = '" . base_url('index.php/oficina/CGestion') . "';
+        </script>";
+            exit;
+        }
+    }
+
+    public function getMarca($idmarca, $vehiculo)
+    {
+        // var_dump($vehiculo);
+        // var_dump($idmarca);
+        if ($vehiculo->registrorunt == '1' && $vehiculo->migrateLineaMarca == '0') {
+
+            $data['idmarcaRUNT'] = $idmarca;
+            $result              = $this->Mmarca->get($data);
+        } else if ($vehiculo->registrorunt == '1' && $vehiculo->migrateLineaMarca == '1') {
+            // echo 'elseif';
+            $data['idmarca'] = $idmarca;
+            $result          = $this->Mmarca->getmigrateLineaMarca($data);
+        } else {
+            $data['idmarca'] = $idmarca;
+            $result          = $this->Mmarca->get2($data);
+        }
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            echo "<script>
+            alert('Error al cargar el FUR: Se requiere actualizar línea y marca del vehículo. Complete esta información en el sistema y si el problema continúa, contacte a soporte técnico.');
+            window.location.href = '" . base_url('index.php/oficina/CGestion') . "';
+        </script>";
+            exit;
+            // echo "<script>alert('Por favor Actualizar líneas y marcas del vehículo.');</script>";
+            // return 'NA';
+        }
+    }
+
+    public function getServicio($idservicio)
+    {
+        $data['idservicio'] = $idservicio;
+        $result             = $this->Mservicio->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            echo "<script>
+            alert('Error al cargar el FUR: Se requiere actualizar el servicio del vehículo. Complete esta información en el sistema y si el problema continúa, contacte a soporte técnico.');
+            window.location.href = '" . base_url('index.php/oficina/CGestion') . "';
+        </script>";
+            exit;
+            // return 'NA';
+        }
+    }
+
+    public function getClase($idclase)
+    {
+        $data['idclase'] = $idclase;
+        $result          = $this->Mclase->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            echo "<script>
+            alert('Error al cargar el FUR: Se requiere actualizar la clase del vehículo. Complete esta información en el sistema y si el problema continúa, contacte a soporte técnico.');
+            window.location.href = '" . base_url('index.php/oficina/CGestion') . "';
+        </script>";
+            exit;
+            // return 'NA';
+        }
+    }
+
+    public function getColor($idcolor, $vehiculo)
+    {
+        if ($vehiculo->registrorunt == '1') {
+            $data['idcolorRUNT'] = $idcolor;
+            $result              = $this->Mcolor->get($data);
+        } else {
+            $data['idcolor'] = $idcolor;
+            $result          = $this->Mcolor->get2($data);
+        }
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            echo "<script>
+            alert('Error al cargar el FUR: Se requiere actualizar el color del vehículo. Complete esta información en el sistema y si el problema continúa, contacte a soporte técnico.');
+            window.location.href = '" . base_url('index.php/oficina/CGestion') . "';
+        </script>";
+            exit;
+            // return 'NA';
+        }
+    }
+
+    public function getCombustible($idcombustible)
+    {
+        $data['idtipocombustible'] = $idcombustible;
+        $result                    = $this->Mcombustible->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            echo "<script>
+            alert('Error al cargar el FUR: Se requiere actualizar el combustible del vehículo. Complete esta información en el sistema y si el problema continúa, contacte a soporte técnico.');
+            window.location.href = '" . base_url('index.php/oficina/CGestion') . "';
+        </script>";
+            exit;
+            // return 'NA';
+        }
+    }
+
+    public function getCarroceria($idcarroceria)
+    {
+        $data['idcarroceria'] = $idcarroceria;
+        $result               = $this->Mcarroceria->get($data);
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            echo "<script>
+            alert('Error al cargar el FUR: Se requiere actualizar la carroceria del vehículo. Complete esta información en el sistema y si el problema continúa, contacte a soporte técnico.');
+            window.location.href = '" . base_url('index.php/oficina/CGestion') . "';
+        </script>";
+            exit;
+            // return 'NA';
+        }
+    }
+    public function getUsuario($IdUsuario)
+    {
+        $data['IdUsuario'] = $IdUsuario;
+        $result            = $this->Musuarios->get($data);
+
+        if ($result->num_rows() > 0) {
+            $r = $result->result();
+            return $r[0];
+        } else {
+            // Mostrar alerta y redirigir con JavaScript usando base_url()
+            echo "<script>
+            alert('No se encontró información del usuario registrado. Esto puede deberse a que no se realizó la prerevisión o no se actualizó la información del vehículo antes de su asignación.\\\\n\\\\nPor favor:\\\\n1. Realice la prerevisión correspondiente\\\\n2. Actualice la información del vehículo desde oficina\\\\n\\\\nSi el problema persiste, comuníquese con soporte técnico.');
+            window.location.href = '" . base_url('index.php/oficina/CGestion') . "';
+        </script>";
+            exit;
+        }
+    }
+
+    //------------------------------------------------------------------------------REGISTROS AUTENTICADOS
+
+    private function autenticarResultado($r, $placa, $tipo_prueba, $fechaPrueba)
+    {
+        // La prueba visual (tipo 8) no se valida contra el juez: sus textos libres (p. ej. comentarios con saltos de línea) dan falsos positivos.
+        if ((string) $tipo_prueba === '8') {
+            return;
+        }
+        if ($r->autentico !== "1" && $this->fechaJuez <= $fechaPrueba) {
+            array_push($this->resultadosAlterados, (object) [
+                "placa"       => $placa,
+                "tipo_prueba" => $tipo_prueba,
+                "old"         => $r->old,
+                "new"         => $r->new,
+            ]);
+        }
+    }
+
+    private function autenticarPrueba($placa, $idprueba)
+    {
+        $aPrueba = $this->Mprueba->getxId($idprueba);
+        if ($aPrueba->num_rows() > 0) {
+            $p = $aPrueba->result();
+            if ($p[0]->autentico !== "1" && $this->fechaJuez <= $p[0]->fechainicial) {
+                array_push($this->pruebasAlteradas, (object) [
+                    "placa"       => $placa,
+                    "tipo_prueba" => "p",
+                    "old"         => $p[0]->old,
+                    "new"         => $p[0]->new,
+                ]);
+            }
+        }
+    }
+
+    //------------------------------------------------------------------------------CORREGIR FUR
+    private function corregirFur($asterisco, $idprueba, $estado)
+    {
+        // echo 'asterisco' . $asterisco .'<br>';
+        // echo 'idprueba' . $idprueba. '<br>';
+        // echo 'estado' . $estado. '<br>';
+        if ($asterisco && $estado == '2') {
+            $this->Mprueba->actualizarEstado($idprueba, '1');
+            $estado             = '1';
+            $this->furCorregido = "1";
+        }
+        if (! $asterisco && $estado == '1') {
+            $this->Mprueba->actualizarEstado($idprueba, '2');
+            $estado             = '2';
+            $this->furCorregido = "1";
+        }
+        return $estado;
+    }
+
+    //------------------------------------------------------------------------------LUCES
+    public $ifdefLuzMinBaja;
+    public $ifdefInclinacionLuces;
+    public $ifdefIntensidadTotal;
+    public $asteriscoLuces = false;
+
+}
